@@ -9,5 +9,5 @@
 const tttEvents = require('./tic-tac-toe/events')
 
 $(() => {
-  // your JS code goes here
+  $('#sign-up').on('submit', tttEvents.onSignUp)
 })

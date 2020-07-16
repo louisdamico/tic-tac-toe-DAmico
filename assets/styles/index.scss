@@ -9,15 +9,15 @@ $hi-viz: #00ff00;
   padding: 20px;
 }
 
-#authenticated {
-  display: none;
-}
+// #certified {
+//   display: none;
+// }
 
 .alt-color {
   background-color: #900999;
 }
 
-h2 {
+h3 {
   text-align: center;
 }
 td {
@@ -44,9 +44,9 @@ table {
   border-right: 2px solid $hi-viz;
 }
 .board-pick {
-    background: transparent;
-    border: none;
-    font-size:0;
+    // background: transparent;
+    // border: none;
+    // font-size:0;
     height: 150px;
     width: 150px;
 }

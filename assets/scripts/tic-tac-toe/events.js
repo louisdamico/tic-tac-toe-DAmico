@@ -1,15 +1,19 @@
-const getFormFields = require('../../../lib/get-form-fields.js')
+// const getFormFields = require('../../../lib/get-form-fields.js')
+const api = require('./api')
 
-$('#create-book').on('submit', function (event) {
+const onSignUp = function(event) {
   event.preventDefault()
 
-  const form = event.target
-  const bookData = getFormFields(form)
-  console.log(bookData) // returned JavaScript object
-})
+  api.signUp(formData)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
 
+module.exports = {
+  onSignUp: onSignUp
+}
 
-//bootstrap modal//
-$('#myModal').on('hidden.bs.modal', function (e) {
-  // do something...
-})
+// //bootstrap modal//
+// $('#myModal').on('hidden.bs.modal', function (e) {
+//   // do something...
+// })
