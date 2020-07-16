@@ -3,7 +3,7 @@
     <head>
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
+      <!-- add link from style sheets -->
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -16,29 +16,74 @@
       <h1>Tic-Tac-Toe</h1>
 
       <div id="unauthenticated">
-        <form id="sign-up">
-          <input name="credentials[email]" placeholder="email here" type="text">
-          <input name="credentials[password]" placeholder="password here" type="password">
-          <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
-          <button type="submit">Sign Up!</button>
-        </form>
-        <form id="sign-in">
-          <input name="credentials[email]" placeholder="email here" type="email">
-          <input name="credentials[password]" placeholder="password here" type="password">
-          <button type="submit">Sign In</button>
+        <h2>Login</h2>
+          <form id="sign-up">
+            <input name="credentials[email]" placeholder="email here" type="text">
+            <input name="credentials[password]" placeholder="password here" type="password">
+            <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
+              <button type="submit">Sign Up!</button>
           </form>
-        </div>
 
+      <!-- dissapear after sign in -->
+          <form id="sign-in">
+            <input name="credentials[email]" placeholder="email here" type="email">
+            <input name="credentials[password]" placeholder="password here" type="password">
+              <button type="submit">Sign In</button>
+          </form>
+      </div>
+
+      <!-- dissapear after sign in -->
       <div id="authenticated">
         <form id="change-password">
           <input name="passwords[old]" placeholder="old password" type="password">
           <input name="passwords[new]" placeholder="new password" type="password">
-          <button type="submit">Change Password</button>
+            <button type="submit">Change Password</button>
         </form>
 
+      <!-- appear only after sign in -->
         <form id="sign-out">
           <button type="submit">Sign Out</button>
         </form>
+      </div>
 
+      <!-- show number of games won, lost, tied -->
+      <div id="score-board">
+        <h3>Score Board</h3>
+      </div>
+
+      <div id="start-game">
+        <button type="submit">Start New Game</button>
+      </div>
+
+      <!-- only select spaces open on board -->
+      <div id="main-board">
+        <h3>Game Board</h3>
+      </div>
+
+      <!-- board layout w/bootstrap, 'container' class wrapper required for row/colums -->
+      <div class="container">
+        <div class="row">
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+        </div>
+        <div class="row">
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+        </div>
+        <div class="row">
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+          <div class="col-4 box alt-color"></div>
+        </div>
+      </div>
+
+
+      <div id="x-o">
+        <h3>X -or- O</h3>
+          <button type="submit">X</button>
+          <button type="submit">O</button>
+      </div>
     </body>
 </html>

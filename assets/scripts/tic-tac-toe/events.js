@@ -7,3 +7,9 @@ $('#create-book').on('submit', function (event) {
   const bookData = getFormFields(form)
   console.log(bookData) // returned JavaScript object
 })
+
+
+//bootstrap modal//
+$('#myModal').on('hidden.bs.modal', function (e) {
+  // do something...
+})
