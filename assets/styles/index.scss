@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
-$primary: #ff1493;
+//$primary: #ff1493;
 
-$black: #000;
+$hi-viz: #00ff00;
 
 .border {
-  border: 3px solid $black;
+  border: 3px solid $hi-viz;
   margin: 20px;
   padding: 20px;
 }
@@ -15,4 +15,38 @@ $black: #000;
 
 .alt-color {
   background-color: #900999;
+}
+
+h2 {
+  text-align: center;
+}
+td {
+  width: 100px;
+  height: 100px;
+}
+table {
+  margin: 5px auto;
+}
+.line-vert {
+  border-left: 2px solid $hi-viz;
+  border-right: 2px solid $hi-viz;
+}
+
+.line-hor {
+  border-top: 2px solid $hi-viz;
+  border-bottom: 2px solid $hi-viz;
+}
+
+.line-vert-hor {
+  border-top: 2px solid $hi-viz;
+  border-bottom: 2px solid $hi-viz;
+  border-left: 2px solid $hi-viz;
+  border-right: 2px solid $hi-viz;
+}
+.board-pick {
+    background: transparent;
+    border: none;
+    font-size:0;
+    height: 150px;
+    width: 150px;
 }

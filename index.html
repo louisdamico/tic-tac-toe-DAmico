@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+
+      <title>Tic Tac Toe</title>
+      <link rel="stylesheet" href="assets/styles/index.scss">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- add link from style sheets -->
+
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -61,7 +63,7 @@
       </div>
 
       <!-- board layout w/bootstrap, 'container' class wrapper required for row/colums -->
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="col-4 box alt-color"></div>
           <div class="col-4 box alt-color"></div>
@@ -77,8 +79,26 @@
           <div class="col-4 box alt-color"></div>
           <div class="col-4 box alt-color"></div>
         </div>
-      </div>
+      </div> -->
 
+      <h2>Tic Tac Toe</h2>
+  <table>
+    <tr>
+      <td><button class="board-pick" type="submit">pick spot 1</button></td>
+      <td class="line-vert"><button class="board-pick" type="submit">pick spot 2</button></td>
+      <td><button class="board-pick" type="submit">pick spot 3</button></td>
+    </tr>
+    <tr>
+      <td class="line-hor"><button class="board-pick" type="submit">pick spot 4</button></td>
+      <td class="line-vert-hor"><button class="board-pick" type="submit">pick spot 5</button></td>
+      <td class="line-hor"><button class="board-pick" type="submit">pick spot 6</button></td>
+    </tr>
+    <tr>
+      <td><button class="board-pick" type="submit">pick spot 7</button></td>
+      <td class="line-vert"><button class="board-pick" type="submit">pick spot 8</button></td>
+      <td><button class="board-pick" type="submit">pick spot 9</button></td>
+    </tr>
+  </table>
 
       <div id="x-o">
         <h3>X -or- O</h3>

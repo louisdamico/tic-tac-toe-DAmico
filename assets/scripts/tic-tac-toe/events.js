@@ -1,4 +1,4 @@
-const getFormFields = require('<path to lib>/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 $('#create-book').on('submit', function (event) {
   event.preventDefault()
