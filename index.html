@@ -17,25 +17,25 @@
     <body>
       <h1>Tic-Tac-Toe</h1>
 
-      <div id="unauthenticated">
+      <div id="not-certifed">
         <h2>Login</h2>
           <form id="sign-up">
-            <input name="credentials[email]" placeholder="email here" type="text">
-            <input name="credentials[password]" placeholder="password here" type="password">
-            <input name="credentials[password_confirmation]" placeholder="confirm password here" type="password">
+            <input name="credentials[email]" placeholder="email" type="text">
+            <input name="credentials[password]" placeholder="password" type="password">
+            <input name="credentials[password_confirmation]" placeholder="confirm password" type="password">
               <button type="submit">Sign Up!</button>
           </form>
 
       <!-- dissapear after sign in -->
-          <form id="sign-in">
-            <input name="credentials[email]" placeholder="email here" type="email">
-            <input name="credentials[password]" placeholder="password here" type="password">
-              <button type="submit">Sign In</button>
+          <form id="log-in">
+            <input name="credentials[email]" placeholder="email" type="email">
+            <input name="credentials[password]" placeholder="password" type="password">
+              <button type="submit">Login</button>
           </form>
       </div>
 
       <!-- dissapear after sign in -->
-      <div id="authenticated">
+      <div id="certified">
         <form id="change-password">
           <input name="passwords[old]" placeholder="old password" type="password">
           <input name="passwords[new]" placeholder="new password" type="password">
@@ -58,9 +58,6 @@
       </div>
 
       <!-- only select spaces open on board -->
-      <div id="main-board">
-        <h3>Game Board</h3>
-      </div>
 
       <!-- board layout w/bootstrap, 'container' class wrapper required for row/colums -->
       <!-- <div class="container">
@@ -78,10 +75,10 @@
           <div class="col-4 box alt-color"></div>
           <div class="col-4 box alt-color"></div>
           <div class="col-4 box alt-color"></div>
-        </div>
+        </div>git
       </div> -->
-
-      <h2>Tic Tac Toe</h2>
+  <div id="main-board">
+    <h3>Tic Tac Toe</h3>
   <table>
     <tr>
       <td><button class="board-pick" type="submit">pick spot 1</button></td>
@@ -99,9 +96,9 @@
       <td><button class="board-pick" type="submit">pick spot 9</button></td>
     </tr>
   </table>
-
+</div>
       <div id="x-o">
-        <h3>X -or- O</h3>
+        <h4>X -or- O</h4>
           <button type="submit">X</button>
           <button type="submit">O</button>
       </div>
