@@ -10,4 +10,7 @@ const tttEvents = require('./tic-tac-toe/events')
 
 $(() => {
   $('#sign-up').on('submit', tttEvents.onSignUp)
+  $('#sign-in').on('submit', tttEvents.onSignIn)
+  $('#change-password').on('submit', tttEvents.onChangePassword)
+  $('#sign-out').on('submit', tttEvents.onSignOut)
 })
