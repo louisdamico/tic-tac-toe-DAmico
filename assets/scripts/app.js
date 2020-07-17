@@ -14,6 +14,6 @@ $(() => {
   $('#change-password').on('submit', tttEvents.onChangePassword)
   $('#sign-out').on('submit', tttEvents.onSignOut)
 
-  $('#xPick').on('submit', tttEvents.onXpick)
+  $('#xo').on('submit', tttEvents.onXpick)
 
 })

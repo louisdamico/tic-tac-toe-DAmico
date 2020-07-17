@@ -29,8 +29,8 @@ const signOutFailure = function () {
   $('#message').text('Failed To Sign Out')
 }
 
-const playerChoiceX = function () {
-  $('#choiceMessage').html('X')
+const pieceChoiceX = function () {
+  $('#choiceMessage').text('X')
 }
 module.exports = {
   signUpSuccess,
@@ -41,5 +41,5 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  playerChoiceX
+  pieceChoiceX
 }

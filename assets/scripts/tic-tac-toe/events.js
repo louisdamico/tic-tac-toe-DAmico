@@ -50,6 +50,7 @@ const onXpick = function (event) {
   const formData = getFormFields(form)
 
   api.pieceChoiceX(formData)
+
 }
 
 

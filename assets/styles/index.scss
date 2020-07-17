@@ -12,40 +12,47 @@ $hi-viz: #00ff00;
 //   display: none;
 // }
 
-.alt-color {
-  background-color: #900999;
+
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
 }
 
 h3 {
   text-align: center;
 }
+
 td {
+  text-align: center;
   width: 100px;
   height: 100px;
 }
 table {
   margin: 5px auto;
 }
-.line-vert {
+#line-vert {
   border-left: 2px solid $hi-viz;
   border-right: 2px solid $hi-viz;
 }
 
-.line-hor {
+#line-hor {
   border-top: 2px solid $hi-viz;
   border-bottom: 2px solid $hi-viz;
 }
 
-.line-vert-hor {
+#line-vert-hor {
   border-top: 2px solid $hi-viz;
   border-bottom: 2px solid $hi-viz;
   border-left: 2px solid $hi-viz;
   border-right: 2px solid $hi-viz;
 }
 .board-pick {
-    // background: transparent;
-    // border: none;
-    // font-size:0;
+    background: transparent;
+    border: none;
+    font-size:0;
     text-align: center;
     height: 150px;
     width: 150px;

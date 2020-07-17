@@ -36,8 +36,8 @@ const signOut = function () {
   })
 }
 
-const playerChoiceX = function () {
-  return x
+const pieceChoiceX = function () {
+  return
 }
 
 module.exports = {
@@ -45,5 +45,5 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  playerChoiceX
+  pieceChoiceX
 }
