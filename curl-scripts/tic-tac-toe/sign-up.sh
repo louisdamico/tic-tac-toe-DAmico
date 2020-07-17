@@ -1,13 +1,12 @@
 #!/bin/bash
 
-API="https://library-express-api.herokuapp.com"
-URL_PATH="/tic-tac-toe"
+# API="https://library-express-api.herokuapp.com"
+# URL_PATH="/tic-tac-toe"
 
-curl "${API}${URL_PATH}" \
+curl "https://library-express-api.herokuapp.com/sign-up" \
 --include \
 --request POST \
-  --header "Content-type: application/json/sign-up" \
-  --header "Authorization: Bearer ${TOKEN}" \
+  --header \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
@@ -15,3 +14,5 @@ curl "${API}${URL_PATH}" \
       "password_confirmation": "'"${PASSWORD_CONFORMATION}"'"
     }
   }'
+
+ echo
