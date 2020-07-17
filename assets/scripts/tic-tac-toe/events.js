@@ -43,22 +43,34 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onXpick = function (event) {
-  event.preventDefault()
+// const onXpick = function () {
+//   event.preventDefault()
+//   console.log('EVENT WORX')
+//   api.pieceChoiceX()
+//
+// }
+//
+//
+//
+// const onCreateGame = function (event) {
+//     const token = store.user.token
+//     apiGame.CreateGame(token)
+//      .then(ui.createGameSuccess)
+//      .catch(ui.createGameError)
+// }
 
-  const form = event.target
-  const formData = getFormFields(form)
+// game play
 
-  api.pieceChoiceX(formData)
-
-}
-
-
+// const startGame = document.querySelector('.start-game')
+//
+// let activeGame = true
+//
+// let playerChoice =
 
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut,
-  onXpick
+  onSignOut
+  // onXpick
 }

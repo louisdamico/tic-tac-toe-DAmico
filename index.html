@@ -18,7 +18,7 @@
       <h1>Tic-Tac-Toe</h1>
 
       <div id="not-certifed">
-        <h2 class"login">Login</h2>
+        <h2 id="login">Login</h2>
           <form id="sign-up">
             <p id="message"></p>
               <input name="credentials[email]" placeholder="email" type="text">
@@ -54,38 +54,38 @@
         <h3>Score Board</h3>
       </div>
 
-      <form id="start-game">
+      <form class="start-game">
         <button type="submit">Start New Game</button>
       </form>
 
-  <div id="game-board_div"
+  <div id="game-board"
     <form id="main-board">
       <h3>Tic Tac Toe</h3>
         <table>
         <tr>
-          <td data-cell-index="0" class="squares" type="submit">spot 1</td>
-          <td id="line-vert" data-cell-index="1" class="squares" type="submit">spot 2</td>
-          <td data-cell-index="2" class="squares"type="submit">spot 3</td>
+          <td data-cell-index="0" class="squares" type="submit">1</td>
+          <td id="line-vert" data-cell-index="1" class="squares" type="submit">2</td>
+          <td data-cell-index="2" class="squares"type="submit">3</td>
         </tr>
         <tr>
-          <td id="line-hor" data-cell-index="3" class="squares" type="submit">spot 4</td>
-          <td id="line-vert-hor" data-cell-index="4" class="squares" type="submit">spot 5</td>
-          <td id="line-hor" data-cell-index="5" class="squares" type="submit">spot 6</td>
+          <td id="line-hor" data-cell-index="3" class="squares" type="submit">4</td>
+          <td id="line-vert-hor" data-cell-index="4" class="squares" type="submit">5</td>
+          <td id="line-hor" data-cell-index="5" class="squares" type="submit">6</td>
         </tr>
         <tr>
-          <td data-cell-index="6" class="squares" type="submit">spot 7</td>
-          <td id="line-vert" data-cell-index="7" class="squares" type="submit">spot 8</td>
-          <td data-cell-index="8" class="squares" type="submit">spot 9</td>
+          <td data-cell-index="6" class="squares" type="submit">7</td>
+          <td id="line-vert" data-cell-index="7" class="squares" type="submit">8</td>
+          <td data-cell-index="8" class="squares" type="submit">9</td>
         </tr>
       </table>
     </form>
   </div>
 
-      <div id="xoChoice">
-        <form id="xo">
+      <div class="xoChoice">
+        <!-- <form class="xo"> -->
           <h4 id="choiceMessage">X -or- O</h4>
-            <button class="xPick" type="submit" value="text">X</button>
-            <button class="oPick" type="submit" value="text">O</button>
+            <button id="xPick">X</button>
+            <button id="oPick" type="submit" value="text">O</button>
         </form >
       </div>
     </body>
