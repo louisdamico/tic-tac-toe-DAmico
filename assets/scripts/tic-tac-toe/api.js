@@ -33,12 +33,17 @@ const signOut = function () {
     },
     url: config.apiURL + '/sign-out',
     method: 'DELETE'
-    }
   })
 }
+
+const playerChoiceX = function () {
+  return x
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  playerChoiceX
 }

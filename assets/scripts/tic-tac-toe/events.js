@@ -43,9 +43,21 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onXpick = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.pieceChoiceX(formData)
+}
+
+
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onXpick
 }
