@@ -1,4 +1,4 @@
-
+const store = require('../store')
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Good Luck!')
 }
@@ -6,9 +6,13 @@ const signUpFailure = function () {
   $('#message').text('Failed To Sign Up')
 }
 
-const signInSuccess = function () {
+const signInSuccess = function (response) {
   $('#message').text('Good Luck!')
   store.user = response.user
+  console.log('store: ', store)
+  console.log('token: ', store.user.token)
+  $('#certified').show()
+  $('#not-certified').hide()
 }
 
 const signInFailure = function () {

@@ -1,4 +1,5 @@
 const config = require('../config')
+const store = require('../store')
 
 const signUp = function (formData) {
   return $.ajax({
@@ -16,13 +17,14 @@ const signIn = function (formData) {
   })
 }
 
-const changePassword = function () {
+const changePassword = function (formData) {
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     url: config.apiUrl + '/change-password',
-    method: 'PATCH'
+    method: 'PATCH',
+    data: formData
   })
 }
 
