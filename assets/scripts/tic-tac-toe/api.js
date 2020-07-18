@@ -30,31 +30,28 @@ const changePassword = function (formData) {
 
 const signOut = function () {
   return $.ajax({
-    header: {
-      Authorization: 'Bearer ' + store.user.token
-    },
     url: config.apiUrl + '/sign-out',
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
-
-
-// ui.js ```
-// const createGameSuccess = function (response) {
-// console.log(response)
-// }
-//
-// const createGameError = function (error) {
-//     console.log(error)
-// } ```
-
-
+const startGame = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/games/:over?',
+    method: 'GET'
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
-  // pieceChoiceX
+  signOut,
+  startGame
 }

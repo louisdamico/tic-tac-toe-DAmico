@@ -4,10 +4,8 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
-
   api.signUp(formData)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -15,10 +13,8 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
-
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -26,10 +22,8 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
-
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -37,40 +31,39 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-
-  api.signOut(formData)
+  api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
+
+const onStartGame = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.startGame(formData)
+    .then(ui.startGameSuccess)
+    .catch(ui.startGameFailure)
+}
+
+// game play
+
+let cells = ['', '', '', '', '', '', '', '', '']
+
+let player = ['X', 'O']
+
+// let activeGame = true
+//
+// let playerChoice =
 
 // const onXpick = function () {
 //   event.preventDefault()
 //   console.log('EVENT WORX')
 //   api.pieceChoiceX()
 //
-// }
-//
-//
-//
-// const onCreateGame = function (event) {
-//     const token = store.user.token
-//     apiGame.CreateGame(token)
-//      .then(ui.createGameSuccess)
-//      .catch(ui.createGameError)
-// }
-
-// game play
-
-// const startGame = document.querySelector('.start-game')
-//
-// let activeGame = true
-//
-// let playerChoice =
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
-  // onXpick
+  onSignOut,
+  onStartGame
 }

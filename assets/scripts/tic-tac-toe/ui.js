@@ -1,4 +1,5 @@
 const store = require('../store')
+
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Good Luck!')
 }
@@ -22,6 +23,7 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#message').text('Change Successful')
 }
+
 const changePasswordFailure = function () {
   $('#message').text('Failed. Try Again ')
 }
@@ -29,13 +31,29 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Siged Out Successfully')
 }
+
 const signOutFailure = function () {
   $('#message').text('Failed To Sign Out')
+}
+
+const startGameSuccess = function () {
+  $('#start-message').text('Your move, Choose Wisely!')
+}
+const startGameFailure = function () {
+  $('#start-message').text('press Start again... :(')
 }
 
 // const pieceChoiceX = function () {
 //   $('#choiceMessage').text('X')
 // }
+// ui.js ```
+// const createGameSuccess = function (response) {
+// console.log(response)
+// }
+//
+// const createGameError = function (error) {
+//     console.log(error)
+// } ```
 
 
 module.exports = {
@@ -46,6 +64,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
-  // pieceChoiceX
+  signOutFailure,
+  startGameSuccess,
+  startGameFailure
 }
