@@ -1,8 +1,9 @@
 const config = require('../config')
+const store = require('../store')
 
 const signUp = function (formData) {
   return $.ajax({
-    url: config.apiURL + '/sign-up',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data: formData
   })
@@ -10,19 +11,20 @@ const signUp = function (formData) {
 
 const signIn = function (formData) {
   return $.ajax({
-    url: config.apiURL + '/sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data: formData
   })
 }
 
-const changePassword = function () {
+const changePassword = function (formData) {
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiURL + '/change-password',
-    method: 'PATCH'
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    data: formData
   })
 }
 
@@ -31,19 +33,28 @@ const signOut = function () {
     header: {
       Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiURL + '/sign-out',
+    url: config.apiUrl + '/sign-out',
     method: 'DELETE'
   })
 }
 
-const playerChoiceX = function () {
-  return x
-}
+
+
+// ui.js ```
+// const createGameSuccess = function (response) {
+// console.log(response)
+// }
+//
+// const createGameError = function (error) {
+//     console.log(error)
+// } ```
+
+
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  playerChoiceX
+  signOut
+  // pieceChoiceX
 }

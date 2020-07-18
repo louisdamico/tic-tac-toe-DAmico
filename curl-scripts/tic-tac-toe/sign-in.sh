@@ -1,6 +1,6 @@
 #!/bin/bah
 
-curl "https://library-express-api.herokuapp.com/sign-in" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/sign-in" \
 --include \
 --request POST \
   --header \
