@@ -13,9 +13,13 @@ $(() => {
   $('#sign-in').on('submit', tttEvents.onSignIn)
   $('#change-password').on('submit', tttEvents.onChangePassword)
   $('#sign-out').on('submit', tttEvents.onSignOut)
- //create a new game
- $('#start-game').on('click', tttEvents.onStartGame)
-})
+  // create a new game
+  $('#start-game').on('submit', tttEvents.onStartGame)
+  // player message
+  // $('#game-board).on('submit', tttEvents.onWin)
+  // $('#game-board).on('submit', tttEvents.onTie)
+  // $('#game-board).on('submit', tttEvents.onPlayerTurn)
 
- //   $('#xPick').on('click', tttEvents.onXpick)
- // })
+  // cells
+  $('.game-board').on('submit', tttEvents.onCellChoice)
+})

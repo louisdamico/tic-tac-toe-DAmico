@@ -43,8 +43,42 @@ const startGame = function (formData) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    data: formData
+  })
+}
+
+const win = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
     url: config.apiUrl + '/games/:over?',
-    method: 'GET'
+    method: 'GET',
+    data: formData
+  })
+}
+
+const tie = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/games/:over?',
+    method: 'GET',
+    data: formData
+  })
+}
+
+const cellChoice = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/games/:id',
+    method: 'PATCH',
+    data: formData
   })
 }
 
@@ -53,5 +87,8 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  startGame
+  startGame,
+  win,
+  tie,
+  cellChoice
 }

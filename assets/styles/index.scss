@@ -31,26 +31,28 @@ h2{
 h3 {
   text-align: center;
 }
-
-td {
-  text-align: center;
-  width: 100px;
-  height: 100px;
+.cell {
+ font-family: sans-serif;
+ text-align: center;
+ width: 100px;
+ height: 100px;
+ cursor: crosshair;
 }
+
 table {
   margin: 5px auto;
 }
-#line-vert {
+td[scope="line-vert"] {
   border-left: 2px solid $hi-viz;
   border-right: 2px solid $hi-viz;
 }
 
-#line-hor {
+td[scope="line-hor"] {
   border-top: 2px solid $hi-viz;
   border-bottom: 2px solid $hi-viz;
 }
 
-#line-vert-hor {
+td[scope="line-vert-hor"] {
   border-top: 2px solid $hi-viz;
   border-bottom: 2px solid $hi-viz;
   border-left: 2px solid $hi-viz;

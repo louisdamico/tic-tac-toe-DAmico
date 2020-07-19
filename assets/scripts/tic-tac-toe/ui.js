@@ -1,4 +1,5 @@
 const store = require('../store')
+const events = require('./events')
 
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Good Luck!')
@@ -36,25 +37,37 @@ const signOutFailure = function () {
   $('#message').text('Failed To Sign Out')
 }
 
-const startGameSuccess = function () {
+const startGameSuccess = function (response) {
   $('#start-message').text('Your move, Choose Wisely!')
+  store.user = response.user
+  console.log('store: ', store)
+  console.log('token: ', store.user.token)
 }
-const startGameFailure = function () {
-  $('#start-message').text('press Start again... :(')
+const startGameFailure = function (response) {
+  $('#start-message').text('Failed, press Start again.')
 }
 
-// const pieceChoiceX = function () {
-//   $('#choiceMessage').text('X')
-// }
-// ui.js ```
-// const createGameSuccess = function (response) {
-// console.log(response)
-// }
-//
-// const createGameError = function (error) {
-//     console.log(error)
-// } ```
+const win = function (response) {
+  $('#message-board').text(events.currentPlayer + ' Wins!')
+  events.currentPlayer = response.currentPlayer
+  store.user = response.user
+  console.log('store: ', store)
+  console.log('token: ', store.user.token)
+}
+const tie = function (response) {
+  $('#message-board').text('It\'s a TIE!')
+  store.user = response.user
+  console.log('store: ', store)
+  console.log('token: ', store.user.token)
+}
 
+const playerTurn = function (response) {
+  $('#message-board').text(events.currentPlayer + '\'s turn.')
+  events.currentPlayer = response.currentPlayer
+  store.user = response.user
+  console.log('store: ', store)
+  console.log('token: ', store.user.token)
+}
 
 module.exports = {
   signUpSuccess,
@@ -66,5 +79,8 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   startGameSuccess,
-  startGameFailure
+  startGameFailure,
+  win,
+  tie,
+  playerTurn
 }

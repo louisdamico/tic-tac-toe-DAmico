@@ -2,10 +2,8 @@
 
 curl "https://tic-tac-toe-api-development.herokuapp.com" \
 --include \
---request POST \
+--request GET \
 --header "Authorization: Bearer ${TOKEN}" \
---data '{
+--data
 
-}'
-
-echo
+  echo

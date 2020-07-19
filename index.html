@@ -62,20 +62,21 @@
   <div class="game-board"
     <form id="board">
       <h3>Tic Tac Toe</h3>
+      <p id="message-board"></p>
         <table>
         <tr>
           <td data-cell-index="0" class="cell" type="submit">1</td>
-          <td id="line-vert" data-cell-index="1" class="cell" type="submit">2</td>
-          <td data-cell-index="2" class="cell"type="submit">3</td>
+          <td data-cell-index="1" class="cell" type="submit" scope="line-vert">2</td>
+          <td data-cell-index="2" class="cell" type="submit">3</td>
         </tr>
         <tr>
-          <td id="line-hor" data-cell-index="3" class="cell" type="submit">4</td>
-          <td id="line-vert-hor" data-cell-index="4" class="cell" type="submit">5</td>
-          <td id="line-hor" data-cell-index="5" class="cell" type="submit">6</td>
+          <td data-cell-index="3" class="cell" type="submit" scope="line-hor">4</td>
+          <td data-cell-index="4" class="cell" type="submit" scope="line-vert-hor">5</td>
+          <td data-cell-index="5" class="cell" type="submit" scope="line-hor">6</td>
         </tr>
         <tr>
           <td data-cell-index="6" class="cell" type="submit">7</td>
-          <td id="line-vert" data-cell-index="7" class="cell" type="submit">8</td>
+          <td data-cell-index="7" class="cell" type="submit" scope="line-vert">8</td>
           <td data-cell-index="8" class="cell" type="submit">9</td>
         </tr>
       </table>

@@ -2,6 +2,11 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
 
+// game play
+let activeGame = true
+const currentPlayer = 'X'
+let cells = ['', '', '', '', '', '', '', '', '']
+
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -45,25 +50,50 @@ const onStartGame = function (event) {
     .catch(ui.startGameFailure)
 }
 
-// game play
+const onCellChoice = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.cellChoice(formData)
+    .then(ui.cellChoiceSuccess)
+    .catch(ui.cellChoiceFailure)
+}
 
-let cells = ['', '', '', '', '', '', '', '', '']
-
-let player = ['X', 'O']
-
-// let activeGame = true
-//
-// let playerChoice =
-
-// const onXpick = function () {
+// const onWin = function (event) {
 //   event.preventDefault()
-//   console.log('EVENT WORX')
-//   api.pieceChoiceX()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.win(formData)
+//     .then(ui.winSuccess)
+//     .catch(ui.winFailure)
+// }
 //
+// const onTie = function (event) {
+//   event.preventDefault()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.tie(formData)
+//     .then(ui.tieSuccess)
+//     .catch(ui.tieFailure)
+// }
+//
+// const onPlayerTurn = function (event) {
+//   event.preventDefault()
+//   const form = event.target
+//   const formData = getFormFields(form)
+//   api.tie(formData)
+//     .then(ui.playerTurnSuccess)
+//     .catch(ui.playerTurnFailure)
+// }
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onStartGame
+  onStartGame,
+  onCellChoice
+  // onWin,
+  // onTie,
+  // onPlayerTurn
 }
