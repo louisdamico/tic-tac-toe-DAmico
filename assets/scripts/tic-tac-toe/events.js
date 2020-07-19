@@ -4,7 +4,7 @@ const ui = require('./ui')
 
 // game play
 let activeGame = true
-const currentPlayer = 'X'
+let currentPlayer = 'X'
 let cells = ['', '', '', '', '', '', '', '', '']
 
 const onSignUp = function (event) {
@@ -48,6 +48,7 @@ const onStartGame = function (event) {
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
+  console.log(event)
 }
 
 const onCellChoice = function (event) {
@@ -58,6 +59,12 @@ const onCellChoice = function (event) {
     .then(ui.cellChoiceSuccess)
     .catch(ui.cellChoiceFailure)
 }
+
+const onPickCell = function (event) {
+  const cells = event.cellIndex
+  console.log(onPickCell, cells)
+}
+
 
 // const onWin = function (event) {
 //   event.preventDefault()
@@ -92,7 +99,8 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onStartGame,
-  onCellChoice
+  onCellChoice,
+  onPickCell
   // onWin,
   // onTie,
   // onPlayerTurn

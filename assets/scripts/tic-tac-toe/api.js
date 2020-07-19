@@ -52,7 +52,7 @@ const startGame = function (formData) {
 const win = function (formData) {
   return $.ajax({
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + store.game.token
     },
     url: config.apiUrl + '/games/:over?',
     method: 'GET',
@@ -63,7 +63,7 @@ const win = function (formData) {
 const tie = function (formData) {
   return $.ajax({
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + store.game.token
     },
     url: config.apiUrl + '/games/:over?',
     method: 'GET',
@@ -74,7 +74,7 @@ const tie = function (formData) {
 const cellChoice = function (formData) {
   return $.ajax({
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + store.game
     },
     url: config.apiUrl + '/games/:id',
     method: 'PATCH',

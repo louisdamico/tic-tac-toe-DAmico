@@ -7,10 +7,8 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/change-password" \
   --data '{
     "game": {
       "cell": {
-        "index": "'"${CELL}"'",
-        "value": "'"${XO}"'"
-      },
-      "over": "'"${OVER}"'"
-    }
-  }'
+        "index":
+        "value":
+      }'
+
 echo

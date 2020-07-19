@@ -37,36 +37,37 @@ const signOutFailure = function () {
   $('#message').text('Failed To Sign Out')
 }
 
-const startGameSuccess = function (response) {
+const startGameSuccess = function (game) {
   $('#start-message').text('Your move, Choose Wisely!')
-  store.user = response.user
+  console.log(game)
+  store.game = game
   console.log('store: ', store)
-  console.log('token: ', store.user.token)
+  console.log('token: ', store.game.token)
 }
 const startGameFailure = function (response) {
   $('#start-message').text('Failed, press Start again.')
 }
 
-const win = function (response) {
+const win = function (game) {
   $('#message-board').text(events.currentPlayer + ' Wins!')
-  events.currentPlayer = response.currentPlayer
-  store.user = response.user
+  events.currentPlayer = game.currentPlayer
+  store.game = game
   console.log('store: ', store)
-  console.log('token: ', store.user.token)
+  console.log('token: ', store.game.token)
 }
-const tie = function (response) {
+const tie = function (game) {
   $('#message-board').text('It\'s a TIE!')
-  store.user = response.user
+  store.game = game
   console.log('store: ', store)
-  console.log('token: ', store.user.token)
+  console.log('token: ', store.game.token)
 }
 
-const playerTurn = function (response) {
+const playerTurn = function (game) {
   $('#message-board').text(events.currentPlayer + '\'s turn.')
-  events.currentPlayer = response.currentPlayer
-  store.user = response.user
+  events.currentPlayer = game.currentPlayer
+  store.game = game
   console.log('store: ', store)
-  console.log('token: ', store.user.token)
+  console.log('token: ', store.game.token)
 }
 
 module.exports = {
