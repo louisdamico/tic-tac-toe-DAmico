@@ -1,4 +1,6 @@
 const store = require('../store')
+const events = require('./events')
+
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Good Luck!')
 }
@@ -22,6 +24,7 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#message').text('Change Successful')
 }
+
 const changePasswordFailure = function () {
   $('#message').text('Failed. Try Again ')
 }
@@ -29,14 +32,43 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Siged Out Successfully')
 }
+
 const signOutFailure = function () {
   $('#message').text('Failed To Sign Out')
 }
 
-// const pieceChoiceX = function () {
-//   $('#choiceMessage').text('X')
-// }
+const startGameSuccess = function (game) {
+  $('#start-message').text('Your move, Choose Wisely!')
+  console.log(game)
+  store.game = game
+  console.log('store: ', store)
+  console.log('token: ', store.game.token)
+}
+const startGameFailure = function (response) {
+  $('#start-message').text('Failed, press Start again.')
+}
 
+const win = function (game) {
+  $('#message-board').text(events.currentPlayer + ' Wins!')
+  events.currentPlayer = game.currentPlayer
+  store.game = game
+  console.log('store: ', store)
+  console.log('token: ', store.game.token)
+}
+const tie = function (game) {
+  $('#message-board').text('It\'s a TIE!')
+  store.game = game
+  console.log('store: ', store)
+  console.log('token: ', store.game.token)
+}
+
+const playerTurn = function (game) {
+  $('#message-board').text(events.currentPlayer + '\'s turn.')
+  events.currentPlayer = game.currentPlayer
+  store.game = game
+  console.log('store: ', store)
+  console.log('token: ', store.game.token)
+}
 
 module.exports = {
   signUpSuccess,
@@ -46,6 +78,10 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
-  // pieceChoiceX
+  signOutFailure,
+  startGameSuccess,
+  startGameFailure,
+  win,
+  tie,
+  playerTurn
 }

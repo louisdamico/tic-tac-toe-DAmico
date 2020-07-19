@@ -30,31 +30,65 @@ const changePassword = function (formData) {
 
 const signOut = function () {
   return $.ajax({
-    header: {
-      Authorization: 'Bearer ' + store.user.token
-    },
     url: config.apiUrl + '/sign-out',
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
+const startGame = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    data: formData
+  })
+}
 
+const win = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.game.token
+    },
+    url: config.apiUrl + '/games/:over?',
+    method: 'GET',
+    data: formData
+  })
+}
 
-// ui.js ```
-// const createGameSuccess = function (response) {
-// console.log(response)
-// }
-//
-// const createGameError = function (error) {
-//     console.log(error)
-// } ```
+const tie = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.game.token
+    },
+    url: config.apiUrl + '/games/:over?',
+    method: 'GET',
+    data: formData
+  })
+}
 
-
+const cellChoice = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.game
+    },
+    url: config.apiUrl + '/games/:id',
+    method: 'PATCH',
+    data: formData
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
-  // pieceChoiceX
+  signOut,
+  startGame,
+  win,
+  tie,
+  cellChoice
 }
