@@ -1,12 +1,11 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
-// game play
 let activeGame = true
-let currentPlayer = 'X'
+let playerPiece = 'X'
 let cells = ['', '', '', '', '', '', '', '', '']
-
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -45,6 +44,7 @@ const onStartGame = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -53,45 +53,15 @@ const onStartGame = function (event) {
 
 const onCellChoice = function (event) {
   event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.cellChoice(formData)
+  store.currentBox = event.target
+  const index = $(store.currentBox).data('cell-index')
+  const player = playerPiece
+
+  api.cellChoice(index, player)
     .then(ui.cellChoiceSuccess)
     .catch(ui.cellChoiceFailure)
+  console.log(event)
 }
-
-const onPickCell = function (event) {
-  const cells = event.cellIndex
-  console.log(onPickCell, cells)
-}
-
-
-// const onWin = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.win(formData)
-//     .then(ui.winSuccess)
-//     .catch(ui.winFailure)
-// }
-//
-// const onTie = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.tie(formData)
-//     .then(ui.tieSuccess)
-//     .catch(ui.tieFailure)
-// }
-//
-// const onPlayerTurn = function (event) {
-//   event.preventDefault()
-//   const form = event.target
-//   const formData = getFormFields(form)
-//   api.tie(formData)
-//     .then(ui.playerTurnSuccess)
-//     .catch(ui.playerTurnFailure)
-// }
 
 module.exports = {
   onSignUp,
@@ -99,9 +69,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onStartGame,
-  onCellChoice,
-  onPickCell
-  // onWin,
-  // onTie,
-  // onPlayerTurn
+  onCellChoice
+
 }

@@ -71,14 +71,22 @@ const tie = function (formData) {
   })
 }
 
-const cellChoice = function (formData) {
+const cellChoice = function (index, player) {
   return $.ajax({
     headers: {
-      Authorization: 'Bearer ' + store.game
+      Authorization: 'Bearer ' + store.user.token
     },
-    url: config.apiUrl + '/games/:id',
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
-    data: formData
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: player
+        },
+        over: false
+      }
+    }
   })
 }
 
