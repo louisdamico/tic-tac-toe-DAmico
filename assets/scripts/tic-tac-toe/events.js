@@ -3,9 +3,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-let activeGame = true
-let playerPiece = 'X'
-let cells = ['', '', '', '', '', '', '', '', '']
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -55,13 +52,35 @@ const onCellChoice = function (event) {
   event.preventDefault()
   store.currentBox = event.target
   const index = $(store.currentBox).data('cell-index')
-  const player = playerPiece
-
-  api.cellChoice(index, player)
+  // const player = playerPiece
+  api.cellChoice(index)
     .then(ui.cellChoiceSuccess)
     .catch(ui.cellChoiceFailure)
-  console.log(event)
+  console.log(index)
 }
+
+let activeGame = true
+let playerPiece = 'X'
+let cells = ['', '', '', '', '', '', '', '', '']
+const winCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [0, 3, 6],
+  [2, 4, 6]
+]
+
+// function checkGame () {
+//   let win = false
+//   for (let i = 0; i <= 7; i++) {
+//
+//   }
+// }
+
+
 
 module.exports = {
   onSignUp,
@@ -70,5 +89,4 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCellChoice
-
 }

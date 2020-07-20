@@ -38,14 +38,14 @@ const signOut = function () {
   })
 }
 
-const startGame = function (formData) {
+const startGame = function () {
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     url: config.apiUrl + '/games',
     method: 'POST',
-    data: formData
+    data: ''
   })
 }
 
@@ -71,7 +71,8 @@ const tie = function (formData) {
   })
 }
 
-const cellChoice = function (index, player) {
+const cellChoice = function (index) {
+  console.log(store)
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -82,7 +83,7 @@ const cellChoice = function (index, player) {
       game: {
         cell: {
           index: index,
-          value: player
+          value: 'X'
         },
         over: false
       }

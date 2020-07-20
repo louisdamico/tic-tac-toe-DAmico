@@ -40,7 +40,7 @@ const signOutFailure = function () {
 const startGameSuccess = function (game) {
   $('#start-message').text('Your move, Choose Wisely!')
   console.log(game)
-  store.game = game
+  store.game = game.game
   console.log('store: ', store)
   console.log('token: ', store.game)
 }
@@ -65,7 +65,7 @@ const tie = function (game) {
 const playerTurn = function (game) {
   $('#message-board').text(events.currentPlayer + '\'s turn.')
   events.currentPlayer = game.currentPlayer
-  store.game = game
+  store.game = game.game
   console.log('store: ', store)
   console.log('token: ', store.game.token)
 }
