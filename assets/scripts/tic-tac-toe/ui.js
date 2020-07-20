@@ -42,10 +42,10 @@ const startGameSuccess = function (game) {
   console.log(game)
   store.game = game
   console.log('store: ', store)
-  console.log('token: ', store.game.token)
+  console.log('token: ', store.game)
 }
 const startGameFailure = function (response) {
-  $('#start-message').text('Failed, press Start again.')
+  $('#start-message').text('Failed, sign in again.')
 }
 
 const win = function (game) {
@@ -70,6 +70,12 @@ const playerTurn = function (game) {
   console.log('token: ', store.game.token)
 }
 
+const cellChoiceSuccess = function (response) {
+  $(store.currentBox).text('X')
+}
+const cellChoiceFailure = function (response) {
+  $('.cell').text('Failed')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -83,5 +89,7 @@ module.exports = {
   startGameFailure,
   win,
   tie,
-  playerTurn
+  playerTurn,
+  cellChoiceSuccess,
+  cellChoiceFailure
 }

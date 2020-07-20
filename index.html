@@ -59,25 +59,25 @@
         <button type="submit">Start New Game</button>
       </form>
 
-  <div class="game-board"
-    <form id="board">
+  <div class="game-board">
+    <!-- <form id="board"> -->
       <h3>Tic Tac Toe</h3>
       <p id="message-board"></p>
         <table>
         <tr>
-          <td data-cell-index="0" class="cell" type="submit">0</td>
-          <td data-cell-index="1" class="cell" type="submit" scope="line-vert">1</td>
-          <td data-cell-index="2" class="cell" type="submit">2</td>
+          <td class="cell" data-cell-index="0" type="submit">0</td>
+          <td class="cell" data-cell-index="1" type="submit" scope="line-vert">1</td>
+          <td class="cell" data-cell-index="2" type="submit">2</td>
         </tr>
         <tr>
-          <td data-cell-index="3" class="cell" type="submit" scope="line-hor">3</td>
-          <td data-cell-index="4" class="cell" type="submit" scope="line-vert-hor">4</td>
-          <td data-cell-index="5" class="cell" type="submit" scope="line-hor">5</td>
+          <td class="cell" data-cell-index="3" type="submit" scope="line-hor">3</td>
+          <td class="cell" data-cell-index="4" type="submit" scope="line-vert-hor">4</td>
+          <td class="cell" data-cell-index="5" type="submit" scope="line-hor">5</td>
         </tr>
         <tr>
-          <td data-cell-index="6" class="cell" type="submit">6</td>
-          <td data-cell-index="7" class="cell" type="submit" scope="line-vert">7</td>
-          <td data-cell-index="8" class="cell" type="submit">8</td>
+          <td class="cell" data-cell-index="6" type="submit">6</td>
+          <td class="cell" data-cell-index="7" type="submit" scope="line-vert">7</td>
+          <td class="cell" data-cell-index="8" type="submit">8</td>
         </tr>
       </table>
     </form>
@@ -86,7 +86,7 @@
       <div class="xoChoice">
         <!-- <form class="xo"> -->
           <h4 id="choiceMessage">X -or- O</h4>
-            <button id="xPick">X</button>
+            <button id="xPick" type="submit" value="text">X</button>
             <button id="oPick" type="submit" value="text">O</button>
         </form >
       </div>
