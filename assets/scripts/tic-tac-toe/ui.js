@@ -48,34 +48,41 @@ const startGameFailure = function (response) {
   $('#start-message').text('Failed, sign in again.')
 }
 
-const win = function (game) {
+const win = function (response) {
   $('#message-board').text(events.currentPlayer + ' Wins!')
-  events.currentPlayer = game.currentPlayer
-  store.game = game
+  events.currentPlayer = response.currentPlayer
+  store.game = response.game
   console.log('store: ', store)
   console.log('token: ', store.game.token)
 }
-const tie = function (game) {
+const tie = function (response) {
   $('#message-board').text('It\'s a TIE!')
-  store.game = game
+  store.game = response.game
   console.log('store: ', store)
   console.log('token: ', store.game.token)
 }
 
-const playerTurn = function (game) {
+const playerTurn = function (response) {
   $('#message-board').text(events.currentPlayer + '\'s turn.')
-  events.currentPlayer = game.currentPlayer
-  store.game = game.game
+  events.currentPlayer = response.currentPlayer
+  store.game = response.game
   console.log('store: ', store)
   console.log('token: ', store.game.token)
 }
 
 const cellChoiceSuccess = function (response) {
-  $(store.currentBox).text('X')
+  $(store.currentBox).text(store.playerChoice.innerText)
 }
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
 }
+const pieceSuccess = (response) => {
+  $('#choiceMessage').text('You chose: ' + store.playerChoice.innerText)
+}
+const pieceFailure = (response) => {
+  $('#choiceMessage').text('Failed. pick again')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -87,9 +94,11 @@ module.exports = {
   signOutFailure,
   startGameSuccess,
   startGameFailure,
-  win,
-  tie,
+  // win,
+  // tie,
   playerTurn,
   cellChoiceSuccess,
-  cellChoiceFailure
+  cellChoiceFailure,
+  pieceSuccess,
+  pieceFailure
 }
