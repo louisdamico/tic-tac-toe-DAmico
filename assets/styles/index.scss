@@ -36,28 +36,34 @@ h3 {
  text-align: center;
  width: 100px;
  height: 100px;
- cursor: crosshair;
+ cursor: pointer;
 }
+
+div {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 
 table {
   margin: 5px auto;
 }
-td[scope="line-vert"] {
-  border-left: 2px solid $hi-viz;
-  border-right: 2px solid $hi-viz;
-}
-
-td[scope="line-hor"] {
-  border-top: 2px solid $hi-viz;
-  border-bottom: 2px solid $hi-viz;
-}
-
-td[scope="line-vert-hor"] {
-  border-top: 2px solid $hi-viz;
-  border-bottom: 2px solid $hi-viz;
-  border-left: 2px solid $hi-viz;
-  border-right: 2px solid $hi-viz;
-}
+// td[scope="line-vert"] {
+//   border-left: 2px solid $hi-viz;
+//   border-right: 2px solid $hi-viz;
+// }
+//
+// td[scope="line-hor"] {
+//   border-top: 2px solid $hi-viz;
+//   border-bottom: 2px solid $hi-viz;
+// }
+//
+// td[scope="line-vert-hor"] {
+//   border-top: 2px solid $hi-viz;
+//   border-bottom: 2px solid $hi-viz;
+//   border-left: 2px solid $hi-viz;
+//   border-right: 2px solid $hi-viz;
+// }
 .cell {
   font-size: 65px;
 }

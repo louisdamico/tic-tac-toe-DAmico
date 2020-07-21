@@ -11,7 +11,7 @@ $(() => {
   $('#change-password').on('submit', tttEvents.onChangePassword)
   $('#sign-out').on('submit', tttEvents.onSignOut)
   // create a new game
-  $('#start-game').on('submit', tttEvents.onStartGame)
+  $('#start-game').on('click', tttEvents.onStartGame)
 
   $('#xoChoice').on('submit', tttEvents.onXoChoice)
   // cells
