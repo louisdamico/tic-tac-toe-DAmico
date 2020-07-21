@@ -49,29 +49,33 @@ const startGame = function () {
   })
 }
 
-const win = function (formData) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.game.token
-    },
-    url: config.apiUrl + '/games/:over?',
-    method: 'GET',
-    data: formData
-  })
-}
+// const win = function (formData) {
+//   return $.ajax({
+//     headers: {
+//       Authorization: 'Bearer ' + store.game.token
+//     },
+//     url: config.apiUrl + '/games/:over?',
+//     method: 'GET',
+//     data: {
+//       game: {
+//         over: true
+//       }
+//     }
+//   })
+// }
+//
+// const tie = function (formData) {
+//   return $.ajax({
+//     headers: {
+//       Authorization: 'Bearer ' + store.game.token
+//     },
+//     url: config.apiUrl + '/games/:over?',
+//     method: 'GET',
+//     data: formData
+//   })
+// }
 
-const tie = function (formData) {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.game.token
-    },
-    url: config.apiUrl + '/games/:over?',
-    method: 'GET',
-    data: formData
-  })
-}
-
-const cellChoice = function (index) {
+const cellChoice = function (index, player, result) {
   console.log(store)
   return $.ajax({
     headers: {
@@ -83,9 +87,9 @@ const cellChoice = function (index) {
       game: {
         cell: {
           index: index,
-          value: 'X'
+          value: player
         },
-        over: false
+        over: result
       }
     }
   })
@@ -97,7 +101,7 @@ module.exports = {
   changePassword,
   signOut,
   startGame,
-  win,
-  tie,
+  // win,
+  // tie,
   cellChoice
 }
