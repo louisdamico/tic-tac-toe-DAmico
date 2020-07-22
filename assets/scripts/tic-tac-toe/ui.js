@@ -41,7 +41,11 @@ const startGameSuccess = function (game) {
   $('#start-message').text('Your move, Choose Wisely!')
   console.log(game)
   store.game = game.game
-  console.log('store: ', store)
+
+  for (let i = 0; i < store.game.cells.length; i++) {
+    $(`#${i}`).text(store.game.cells[i])
+  }
+
   console.log('token: ', store.game)
 }
 const startGameFailure = function (response) {
@@ -71,7 +75,8 @@ const playerTurn = function (response) {
 }
 
 const cellChoiceSuccess = function (response) {
-  $(store.currentBox).text(store.playerChoice.innerText)
+  console.log('This is the response cell choice success', response)
+  $(`#${store.currentBox}`).text(store.playerChoice.innerText)
 }
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
@@ -82,6 +87,7 @@ const pieceSuccess = (response) => {
 const pieceFailure = (response) => {
   $('#choiceMessage').text('Failed. pick again')
 }
+
 
 module.exports = {
   signUpSuccess,

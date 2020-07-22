@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
+$black: black;
 $hi-viz: #00ff00;
 
 .border {
@@ -31,33 +32,19 @@ h2{
 h3 {
   text-align: center;
 }
+.game-board {
+  display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+}
+
 .cell {
  font-family: sans-serif;
  text-align: center;
  width: 100px;
  height: 100px;
- cursor: crosshair;
-}
-
-table {
-  margin: 5px auto;
-}
-td[scope="line-vert"] {
-  border-left: 2px solid $hi-viz;
-  border-right: 2px solid $hi-viz;
-}
-
-td[scope="line-hor"] {
-  border-top: 2px solid $hi-viz;
-  border-bottom: 2px solid $hi-viz;
-}
-
-td[scope="line-vert-hor"] {
-  border-top: 2px solid $hi-viz;
-  border-bottom: 2px solid $hi-viz;
-  border-left: 2px solid $hi-viz;
-  border-right: 2px solid $hi-viz;
-}
-.cell {
-  font-size: 65px;
+ font-size: 65px;
+ cursor: pointer;
+ border: 1px solid;
 }
