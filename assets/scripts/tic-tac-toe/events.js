@@ -38,6 +38,7 @@ const onSignOut = function (event) {
 }
 
 let cells = ['', '', '', '', '', '', '', '', '']
+store.player = 'X'
 
 const onStartGame = function (event) {
   event.preventDefault()
@@ -62,9 +63,10 @@ const onCellChoice = function (event) {
     .catch(ui.cellChoiceFailure)
 }
 
-const playerPiece = (event, onCellChoice) => {
+const playerPiece = (event) => {
   event.preventDefault()
   store.playerChoice = event.target
+
   const player = $(store.playerChoice).val()
 
   api.cellChoice(player)

@@ -75,8 +75,8 @@ const playerTurn = function (response) {
 }
 
 const cellChoiceSuccess = function (response) {
-  // $(store.currentBox).text(store.playerChoice.innerText)
   console.log('This is the response cell choice success', response)
+  $(`#${store.currentBox}`).text(store.playerChoice.innerText)
 }
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
