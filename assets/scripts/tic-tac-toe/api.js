@@ -61,7 +61,7 @@ const cellChoice = function (index, player, result) {
       game: {
         cell: {
           index: index,
-          value: player
+          value: store.player
         },
         over: result
       }
