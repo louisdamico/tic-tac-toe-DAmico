@@ -65,9 +65,9 @@ const onCellChoice = function (event) {
 
 const playerPiece = (event) => {
   event.preventDefault()
-  store.playerChoice = event.target
+  // store.playerChoice = event.target
 
-  const player = $(store.playerChoice).val()
+  const player = $(store.player).val()
 
   api.cellChoice(player)
     .then(ui.pieceSuccess)
