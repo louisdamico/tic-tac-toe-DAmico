@@ -37,8 +37,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-let cells = ['', '', '', '', '', '', '', '', '']
-store.player = 'X'
+// let cells = ['', '', '', '', '', '', '', '', '']
 
 const onStartGame = function (event) {
   event.preventDefault()
@@ -48,12 +47,13 @@ const onStartGame = function (event) {
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
+
   console.log(event)
 
 }
 const onCellChoice = function (event) {
   event.preventDefault()
-
+  store.player = 'X'
   store.currentBox = event.target.id
   const index = store.currentBox
   console.log('This is the index and this .cells inside on cell choice')
@@ -65,9 +65,9 @@ const onCellChoice = function (event) {
 
 const playerPiece = (event) => {
   event.preventDefault()
-  store.playerChoice = event.target
+  // store.playerChoice = event.target
 
-  const player = $(store.playerChoice).val()
+  const player = $(store.player).val()
 
   api.cellChoice(player)
     .then(ui.pieceSuccess)

@@ -3,6 +3,9 @@ const events = require('./events')
 
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Good Luck!')
+  $('form').trigger('reset')
+  // $('#sign-up').hide()
+  // $('#sing-out').show()
 }
 const signUpFailure = function () {
   $('#message').text('Failed To Sign Up')
@@ -13,8 +16,9 @@ const signInSuccess = function (response) {
   store.user = response.user
   console.log('store: ', store)
   console.log('token: ', store.user.token)
-  $('#certified').show()
-  $('#not-certified').hide()
+  $('form').trigger('reset')
+  // $('#sign-in').hide()
+  // $('#sign-up').hide()
 }
 
 const signInFailure = function () {
@@ -23,6 +27,7 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function () {
   $('#message').text('Change Successful')
+  $('form').trigger('reset')
 }
 
 const changePasswordFailure = function () {
@@ -76,18 +81,18 @@ const playerTurn = function (response) {
 
 const cellChoiceSuccess = function (response) {
   console.log('This is the response cell choice success', response)
-  $(`#${store.currentBox}`).text(store.playerChoice.innerText)
+  $(`#${store.currentBox}`).text(store.player)
 }
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
 }
+// change store.playerChoice.innerText for picking X & O
 const pieceSuccess = (response) => {
-  $('#choiceMessage').text('You chose: ' + store.playerChoice.innerText)
+  $('#choiceMessage').text('You chose: ' + store.player)
 }
 const pieceFailure = (response) => {
   $('#choiceMessage').text('Failed. pick again')
 }
-
 
 module.exports = {
   signUpSuccess,

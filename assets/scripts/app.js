@@ -16,5 +16,5 @@ $(() => {
   $('#xoChoice').on('submit', tttEvents.onXoChoice)
   // cells
   $('.cell').on('click', tttEvents.onCellChoice)
-  $('.pick').on('click', tttEvents.playerPiece)
+  // $('.pick').on('click', tttEvents.playerPiece)
 })
