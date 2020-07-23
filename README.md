@@ -21,13 +21,15 @@ User Stories:
 
 Technologies Used:
   jQuery
-  HTML/CSS
-  Bootstrap
+  HTML
+  CSS
+  SASS
   Javascript
+  
 
 Unsolved Problems:
-  Still need to ....
-  Would like to eventually ....
+  I still need to work on my styling and overall look and feel of how I orignaly set in my wifeframe/ 
+  Would like to eventually add some animations.  
 
 Images:
   Wireframe
