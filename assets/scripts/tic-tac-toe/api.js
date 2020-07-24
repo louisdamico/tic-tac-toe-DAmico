@@ -50,7 +50,7 @@ const startGame = function () {
 }
 
 const cellChoice = function (index, player, result) {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token

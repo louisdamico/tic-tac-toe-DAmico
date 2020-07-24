@@ -37,7 +37,6 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// let cells = ['', '', '', '', '', '', '', '', '']
 
 const onStartGame = function (event) {
   event.preventDefault()
@@ -49,15 +48,23 @@ const onStartGame = function (event) {
     .catch(ui.startGameFailure)
 
   console.log(event)
-
 }
+store.player = 'X'
 const onCellChoice = function (event) {
   event.preventDefault()
-  store.player = 'X'
+  // if (store.game.cell.index ===  || store.currentBox === 'O') {
+
+
+} else if ($('.cell').text() === 'X' || $('.cell').text() === 'O') {
+    console.log(event + ' This is the cell choice if player choice already.')
+    $('#message-board').text('Pick another spot')
+  }
+
   store.currentBox = event.target.id
   const index = store.currentBox
   console.log('This is the index and this .cells inside on cell choice')
   console.log(index)
+
   api.cellChoice(index)
     .then(ui.cellChoiceSuccess)
     .catch(ui.cellChoiceFailure)
