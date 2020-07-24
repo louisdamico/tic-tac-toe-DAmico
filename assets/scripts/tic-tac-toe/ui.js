@@ -43,7 +43,7 @@ const signOutFailure = function () {
 }
 
 const startGameSuccess = function (response) {
-  $('#start-message').text('Your move, Choose Wisely!')
+  $('#start-message').text('Your move X, Choose Wisely!')
   console.log(response)
   store.game = response.game
 
@@ -57,52 +57,67 @@ const startGameFailure = function (response) {
   $('#start-message').text('Failed, sign in again.')
 }
 
-const win = function () {
+const checkForWinner = function () {
   if ($('#0').text() === 'X' && $('#1').text() === 'X' && $('#2').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#0').text() === 'O' && $('#1').text() === 'O' && $('#2').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#0').text() === 'X' && $('#3').text() === 'X' && $('#6').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#0').text() === 'O' && $('#3').text() === 'O' && $('#6').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#0').text() === 'X' && $('#4').text() === 'X' && $('#8').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#0').text() === 'O' && $('#4').text() === 'O' && $('#8').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#1').text() === 'X' && $('#4').text() === 'X' && $('#7').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#1').text() === 'O' && $('#4').text() === 'O' && $('#7').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#2').text() === 'X' && $('#4').text() === 'X' && $('#6').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#2').text() === 'O' && $('#4').text() === 'O' && $('#6').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#2').text() === 'X' && $('#5').text() === 'X' && $('#8').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#2').text() === 'O' && $('#5').text() === 'O' && $('#8').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#3').text() === 'X' && $('#4').text() === 'X' && $('#5').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#3').text() === 'O' && $('#4').text() === 'O' && $('#5').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#6').text() === 'X' && $('#7').text() === 'X' && $('#8').text() === 'X') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else if ($('#6').text() === 'O' && $('#7').text() === 'O' && $('#8').text() === 'O') {
+    $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
   } else {
-    return false
+    if (store.currentBox === store.game.cells.length) {
+      $('#message-board').text('It\'s a TIE!')
+      return true
+    } else {
+      return false
+    }
   }
 }
 
-const tie = function (response) {
-  if (store.currentBox === store.game.cells.length) {
-    $('#message-board').text('It\'s a TIE!')
-    return true
-  } else {
-    return false
-  }
-}
+
+// const checkForTie = function (response) {
 
 const playerTurn = function (response) {
   $('#message-board').text(events.currentPlayer + '\'s turn.')
@@ -110,16 +125,21 @@ const playerTurn = function (response) {
   store.game = response.game
 }
 
+
 const cellChoiceSuccess = function (response, game) {
   console.log('This is the response cell choice success', response)
   $(`#${store.currentBox}`).text(store.player)
-  if (store.currentBox === store.player) {
-    store.game = response.game
-    console.log(store.currentBox, store.game)
-  } else {
-    $('#message-board').text('Pick An Empty Spot!')
-  }
+  console.log('YAAAAS', checkForWinner())
+  // if (store.currentBox === store.player) {
+  console.log('this is store.currentBox\n', store.currentBox)
+  // $('#message-board').text('Pick An Empty Spot!')
+  store.game = response.game
+  store.game.over = checkForWinner()
+//   } else {
+//   }
 }
+
+
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
 }
@@ -142,8 +162,7 @@ module.exports = {
   signOutFailure,
   startGameSuccess,
   startGameFailure,
-  win,
-  tie,
+  checkForWinner,
   playerTurn,
   cellChoiceSuccess,
   cellChoiceFailure,
