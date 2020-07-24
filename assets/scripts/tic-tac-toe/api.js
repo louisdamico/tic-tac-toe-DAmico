@@ -50,7 +50,7 @@ const startGame = function () {
 }
 
 const cellChoice = function (index, player, result) {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -69,13 +69,25 @@ const cellChoice = function (index, player, result) {
   })
 }
 
+// const updateGame = function () {
+//   return $.ajax({
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     url: config.apiUrl + '/games',
+//     method: 'GET',
+//     data: {
+//       games: store.totalGames
+//     }
+//   })
+// }
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   startGame,
-  // win,
-  // tie,
   cellChoice
+  // updateGame
 }

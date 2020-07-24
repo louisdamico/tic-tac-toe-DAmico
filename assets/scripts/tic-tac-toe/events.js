@@ -37,31 +37,53 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// let cells = ['', '', '', '', '', '', '', '', '']
 
 const onStartGame = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  store.player = 'O'
 
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
 
   console.log(event)
-
 }
-const onCellChoice = function (event) {
+
+// store.totalGames = 0
+
+store.player1 = 'X'
+const onCellChoice = function (event, checkForWinner, checkForTie) {
   event.preventDefault()
-  store.player = 'X'
+  if (store.game.over === true) {
+    $('#message-board').text('Game Over')
+    return
+  }
+  // } else if ($('.cell').text() === '') {call to index
+  // store.game.cells.value
+  // }
+// } else if { if not new suare return
+store.player = (store.player === 'X') ? 'O' : 'X'
+
+  console.log(event + ' This is the cell choice if player choice already.')
+  $('#message-board').text('Pick another spot')
+
   store.currentBox = event.target.id
   const index = store.currentBox
   console.log('This is the index and this .cells inside on cell choice')
   console.log(index)
+
   api.cellChoice(index)
     .then(ui.cellChoiceSuccess)
     .catch(ui.cellChoiceFailure)
+  // setTimeout(() => {
+  //   console.log(ui.checkForWinner())
+  // }, 1000)
+  // console.log(ui.checkForWinner())
+  // }
 }
+
 
 const playerPiece = (event) => {
   event.preventDefault()
@@ -78,9 +100,6 @@ const playerPiece = (event) => {
 
 
 
-
-
-
 module.exports = {
   onSignUp,
   onSignIn,
@@ -89,4 +108,7 @@ module.exports = {
   onStartGame,
   onCellChoice,
   playerPiece
+  // checkForWinner,
+  // updateGameSuccess,
+  // updateGameSuccess
 }
