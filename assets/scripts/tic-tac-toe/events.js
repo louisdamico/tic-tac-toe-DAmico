@@ -52,31 +52,32 @@ const onStartGame = function (event) {
 }
 
 // store.totalGames = 0
+// store.player1 = 'X'
 
-store.player1 = 'X'
 const onCellChoice = function (event, checkForWinner, checkForTie) {
   event.preventDefault()
+  store.currentBox = event.target.id
+  const index = store.currentBox
   if (store.game.over === true) {
     $('#message-board').text('Game Over')
     return
+
+  } else if (store.game.cells[index] === '') {
+    store.player = (store.player === 'X') ? 'O' : 'X'
+
+    console.log(event + ' This is the cell choice if player choice already.')
+    $('#message-board').text('Pick another spot')
+
+    console.log('This is the index and this .cells inside on cell choice')
+    console.log(index)
+
+    api.cellChoice(index)
+      .then(ui.cellChoiceSuccess)
+      .catch(ui.cellChoiceFailure)
+  } else {
+  return
   }
-  // } else if ($('.cell').text() === '') {call to index
-  // store.game.cells.value
-  // }
-// } else if { if not new suare return
-store.player = (store.player === 'X') ? 'O' : 'X'
 
-  console.log(event + ' This is the cell choice if player choice already.')
-  $('#message-board').text('Pick another spot')
-
-  store.currentBox = event.target.id
-  const index = store.currentBox
-  console.log('This is the index and this .cells inside on cell choice')
-  console.log(index)
-
-  api.cellChoice(index)
-    .then(ui.cellChoiceSuccess)
-    .catch(ui.cellChoiceFailure)
   // setTimeout(() => {
   //   console.log(ui.checkForWinner())
   // }, 1000)
@@ -97,7 +98,7 @@ const playerPiece = (event) => {
   console.log('Player: ' + event)
 }
 
-
+// const game = event
 
 
 module.exports = {
