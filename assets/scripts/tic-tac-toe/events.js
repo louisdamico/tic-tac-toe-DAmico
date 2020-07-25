@@ -37,7 +37,6 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-
 const onStartGame = function (event) {
   event.preventDefault()
   const form = event.target
@@ -51,6 +50,13 @@ const onStartGame = function (event) {
   console.log(event)
 }
 
+
+const onGameCount = function (event) {
+  event.preventDefault()
+  api.gameCount()
+    .then(ui.gameCountSuccess)
+    .catch(ui.gameCountFailure)
+}
 // store.totalGames = 0
 // store.player1 = 'X'
 
@@ -61,30 +67,20 @@ const onCellChoice = function (event, checkForWinner, checkForTie) {
   if (store.game.over === true) {
     $('#message-board').text('Game Over')
     return
-
   } else if (store.game.cells[index] === '') {
     store.player = (store.player === 'X') ? 'O' : 'X'
-
-    console.log(event + ' This is the cell choice if player choice already.')
+    // console.log(event + ' This is the cell choice if player choice already.')
     $('#message-board').text('Pick another spot')
-
-    console.log('This is the index and this .cells inside on cell choice')
-    console.log(index)
+    // console.log('This is the index and this .cells inside on cell choice')
+    // console.log(index)
 
     api.cellChoice(index)
       .then(ui.cellChoiceSuccess)
       .catch(ui.cellChoiceFailure)
   } else {
-  return
+    return
   }
-
-  // setTimeout(() => {
-  //   console.log(ui.checkForWinner())
-  // }, 1000)
-  // console.log(ui.checkForWinner())
-  // }
 }
-
 
 const playerPiece = (event) => {
   event.preventDefault()
@@ -98,8 +94,6 @@ const playerPiece = (event) => {
   console.log('Player: ' + event)
 }
 
-// const game = event
-
 
 module.exports = {
   onSignUp,
@@ -108,6 +102,7 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCellChoice,
+  onGameCount,
   playerPiece
   // checkForWinner,
   // updateGameSuccess,
