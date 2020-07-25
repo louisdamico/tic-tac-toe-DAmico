@@ -116,15 +116,11 @@ const checkForWinner = function () {
   }
 }
 
-
-// const checkForTie = function (response) {
-
 const playerTurn = function (response) {
   $('#message-board').text(events.currentPlayer + '\'s turn.')
   events.currentPlayer = response.currentPlayer
   store.game = response.game
 }
-
 
 const cellChoiceSuccess = function (response, game) {
   console.log('This is the response cell choice success', response)
@@ -135,10 +131,7 @@ const cellChoiceSuccess = function (response, game) {
   // $('#message-board').text('Pick An Empty Spot!')
   store.game = response.game
   store.game.over = checkForWinner()
-//   } else {
-//   }
 }
-
 
 const cellChoiceFailure = function (response) {
   $('.cell').text('Failed')
@@ -150,7 +143,12 @@ const pieceSuccess = (response) => {
 const pieceFailure = (response) => {
   $('#choiceMessage').text('Failed. pick again')
 }
-
+const gameCountSuccess = (response) => {
+  $('#games-played').html('Total number of games played: ' + response.games.length)
+}
+const gameCountFailure = (response) => {
+  $('#games-played').text('-Failed-')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -167,5 +165,7 @@ module.exports = {
   cellChoiceSuccess,
   cellChoiceFailure,
   pieceSuccess,
-  pieceFailure
+  pieceFailure,
+  gameCountSuccess,
+  gameCountFailure
 }

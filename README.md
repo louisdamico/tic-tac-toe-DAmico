@@ -7,12 +7,12 @@ Important Links:
 
   <a href="https://loudam88.github.io/tic-tac-toe-DAmico/" rel="nofollow">Tic Tac Toe</a>
 
-
 Planning Story:
 
-The first steps I took towards development was to set some wireframes on how I would like the game to visually look, pictured below.
+The first steps I took towards development was to set some wireframes on how I would like the game to visually look, pictured below. The orginal disgins we're based on moble and laptop play. Next I aquired all the parameters and documentation needed for the game to make a timeframe schedule.  I started with all the elements I was comfortable with in html and css to build the gameboard.  From there I started working on all the ligic that he game was going to require and login/sign up info. Once I had everything organized I was ready to start developing.
 
 User Stories:
+
   As a user I want to sign in/up.
   As a user I want to Create a new game.
   As a user I want to play multiple games.
@@ -31,6 +31,7 @@ Technologies Used:
   * Bootstrap
 
 Unsolved Problems:
+
 Still need to make the game a bit more interactive and give it some more styling and a few mroe animation, like drop down menus and mutilple pages to view.
 Would like to eventually make the it be able to play agianst a simple AI.
 
@@ -49,5 +50,5 @@ Unsolved Problems:
 
 Images:
   Wireframes:
-  <img src="https://i.imgur.com/VjcQEYb.jpg" alt="Wireframes">
-  [Laptop layout] (https://i.imgur.com/73tgtOA.jpg)
+  <img src="https://i.imgur.com/VjcQEYb.jpg" alt="moble page drawing">
+  <img src="https://i.imgur.com/73tgtOA.jpg" alt="laptop page drawing">
