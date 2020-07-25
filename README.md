@@ -22,6 +22,7 @@ User Stories:
 
 Technologies Used:
 
+
   * HTML
   * CSS
   * Sass
@@ -32,6 +33,19 @@ Technologies Used:
 Unsolved Problems:
 Still need to make the game a bit more interactive and give it some more styling and a few mroe animation, like drop down menus and mutilple pages to view.
 Would like to eventually make the it be able to play agianst a simple AI.
+
+
+  jQuery
+  HTML
+  CSS
+  SASS
+  Javascript
+  
+
+Unsolved Problems:
+  I still need to work on my styling and overall look and feel of how I orignaly set in my wifeframe/ 
+  Would like to eventually add some animations.  
+
 
 Images:
   Wireframes:
