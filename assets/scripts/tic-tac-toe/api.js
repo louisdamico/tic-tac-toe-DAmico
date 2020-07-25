@@ -69,18 +69,18 @@ const cellChoice = function (index, player, result) {
   })
 }
 
-const updateGame = function () {
-  return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    url: config.apiUrl + '/games',
-    method: 'GET',
-    data: {
-      games: store.totalGames
-    }
-  })
-}
+// const updateGame = function () {
+//   return $.ajax({
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     url: config.apiUrl + '/games',
+//     method: 'GET',
+//     data: {
+//       games: store.totalGames
+//     }
+//   })
+// }
 
 module.exports = {
   signUp,
