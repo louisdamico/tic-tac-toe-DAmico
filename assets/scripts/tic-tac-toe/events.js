@@ -73,8 +73,6 @@ const onCellChoice = function (event, checkForWinner, checkForTie) {
   }
 }
 
-
-
 module.exports = {
   onSignUp,
   onSignIn,

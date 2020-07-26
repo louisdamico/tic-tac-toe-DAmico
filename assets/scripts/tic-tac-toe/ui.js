@@ -2,7 +2,6 @@ const store = require('../store')
 const events = require('./events')
 
 $('#certified').hide()
-$('#message').show()
 $('#start-game').hide()
 $('#game-count').hide()
 $('#start-message').show()
@@ -18,8 +17,10 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
-  $('#change-password').show()
-  $('#certified').show()
+  $('#message').show()
+  $('#sign-out').show()
+  $('#change-password').delay(3000).slideDown(1000)
+  $('#certified').delay(3000).slideDown(1000)
   $('#message').text('Good Luck!')
   store.user = response.user
   console.log('store: ', store)
@@ -56,12 +57,14 @@ const signOutSuccess = function () {
   $('#message').delay(3500).hide('Signed Out Successfully')
   $('#login').delay(4000).show('#login')
   $('#change-password').hide()
-  $('#start-message').hide()
+  $('#start-message').empty()
   $('#change-pw').slideUp(1500)
-  $('#sign-out').delay(3500).slideUp(1000)
-  $('#start-game').delay(3000).slideUp(1000)
-  $('#game-count').delay(2500).slideUp(1000)
-  $('#games-played').delay(1500).slideUp(1000)
+  $('#sign-out').delay(2000).slideUp(1000)
+  $('#start-game').delay(1500).slideUp(1000)
+  $('#game-count').delay(1000).slideUp(1000)
+  $('#games-played').empty()
+  $('#message').show()  // this from top
+
 }
 
 const signOutFailure = function () {
@@ -75,7 +78,7 @@ const startGameSuccess = function (response) {
     $(`#${i}`).text(store.game.cells[i])
   }
   $('#start-message').text('Your move X, Choose Wisely!')
-  $('#change-password').delay(700).slideUp(1000)
+  $('#change-password').slideUp(1000) // this
   $('#message-board').delay(1000).slideUp(1000)
   $('#change-pw').hide()
 }
