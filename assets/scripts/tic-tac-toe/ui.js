@@ -7,18 +7,19 @@ $('#game-count').hide()
 $('#start-message').show()
 
 const signUpSuccess = function () {
-  $('#message').text('All Signed up. Sign In To Play!')
+  $('#message').text('All Signed up. Sign In To Play!').show()
   $('form').trigger('reset')
   $('#sign-up').delay(3500).slideUp(1500)
   // $('#sing-out').show()
 }
 const signUpFailure = function () {
-  $('#message').text('Try A Different Email')
+
+  $('#message').text('Try A Different Email').show()
 }
 
 const signInSuccess = function (response) {
   $('#message').show()
-  $('#sign-out').show()
+  $('#sign-out').delay(3000).fadeIn(1000)
   $('#change-password').delay(3000).slideDown(1000)
   $('#certified').delay(3000).slideDown(1000)
   $('#message').text('Good Luck!')
@@ -51,20 +52,19 @@ const changePasswordFailure = function () {
   $('#change-pw').text('oops...Try Again')
 }
 const signOutSuccess = function () {
+  $('#change-password').hide()
   $('#message').text('Signed Out Successfully')
   $('#sign-up').slideDown(1000)
   $('#sign-in').delay(750).slideDown(1000)
   $('#message').delay(3500).hide('Signed Out Successfully')
   $('#login').delay(4000).show('#login')
-  $('#change-password').hide()
   $('#start-message').empty()
   $('#change-pw').slideUp(1500)
   $('#sign-out').delay(2000).slideUp(1000)
   $('#start-game').delay(1500).slideUp(1000)
   $('#game-count').delay(1000).slideUp(1000)
   $('#games-played').empty()
-  $('#message').show()  // this from top
-
+  $('#message').show() // this from top
 }
 
 const signOutFailure = function () {
