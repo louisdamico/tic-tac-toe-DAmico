@@ -8,10 +8,31 @@ $hi-viz: #00ff00;
   margin: 20px;
   padding: 20px;
 }
+button:focus {
+  outline: 0;
+}
+
 body {
   text-align: center;
   background: #dcdcdc;
   font-family: 'Permanent Marker', cursive;
+}
+
+header {
+  background: black;
+  padding: 20px;
+  margin: 15px 5px;
+  color: #dcdcdc;
+  border-radius: 10px;
+}
+button {
+  border-radius: 7px;
+}
+input {
+  border-radius: 7px;
+}
+input {
+  text-align: center;
 }
 
 h1{
