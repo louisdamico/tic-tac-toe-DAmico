@@ -8,14 +8,27 @@ $hi-viz: #00ff00;
   margin: 20px;
   padding: 20px;
 }
-button:focus {
-  outline: 0;
-}
 
 body {
+  font-size: 15px;
   text-align: center;
   background: #dcdcdc;
   font-family: 'Permanent Marker', cursive;
+}
+button:focus {
+  outline: 0;
+}
+button {
+  background-color: #dcdcdc;
+  border-radius: 7px;
+}
+input:focus {
+  outline: 0;
+}
+input {
+  background-color: #dcdcdc;
+  border-radius: 7px;
+  text-align: center;
 }
 
 header {
@@ -24,15 +37,6 @@ header {
   margin: 15px 5px;
   color: #dcdcdc;
   border-radius: 10px;
-}
-button {
-  border-radius: 7px;
-}
-input {
-  border-radius: 7px;
-}
-input {
-  text-align: center;
 }
 
 h1{
@@ -62,13 +66,23 @@ h3 {
  height: 100px;
  font-size: 65px;
  cursor: pointer;
- border: 1px solid;
+ border: 2px solid;
 }
 .cell:hover {
   background-color: rgba(105,191,133,0.5);
   transition: .5s background-color;
 }
-
+// .cell {
+//   background-image:     url('https://i.imgur.com/YbSqVbd.png?1');
+//   background-size: cover;
+//   background-color: #dcdcdc;
+//   border-radius: 100px;
+//   border-width:9px;
+//   height: 200px;
+//   width: 200px;
+//   border-color: black;
+//   margin: auto;
+// }
 // iPhone 6, 6S, 7 and 8
 
  // Portrait and Landscape
