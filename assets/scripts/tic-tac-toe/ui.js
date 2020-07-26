@@ -51,13 +51,12 @@ const startGameSuccess = function (response) {
     $(`#${i}`).text(store.game.cells[i])
   }
   $('#message-board').hide()
-  // console.log('token: ', store.game)
 }
 const startGameFailure = function (response) {
   $('#start-message').text('Failed, sign in again.')
 }
 
-const checkForWinner = function () {
+const checkForWinner = function (response) {
   if ($('#0').text() === 'X' && $('#1').text() === 'X' && $('#2').text() === 'X') {
     $('#message-board').text('Winner Winner Chicken Dinner ' + store.player)
     return true
@@ -108,6 +107,7 @@ const checkForWinner = function () {
     return true
   } else {
     if (store.currentBox === store.game.cells.length) {
+      console.log(store.currentBox, store.game.cells.length)
       $('#message-board').text('It\'s a TIE!')
       return true
     } else {
@@ -116,39 +116,32 @@ const checkForWinner = function () {
   }
 }
 
-const playerTurn = function (response) {
-  $('#message-board').text(events.currentPlayer + '\'s turn.')
-  events.currentPlayer = response.currentPlayer
-  store.game = response.game
-}
+// const playerTurn = function (response) {
+//   $('#message-board').html(events.currentPlayer + '\'s turn.')
+//   events.currentPlayer = response.currentPlayer
+//   store.game = response.game
+// }
 
 const cellChoiceSuccess = function (response, game) {
-  console.log('This is the response cell choice success', response)
   $(`#${store.currentBox}`).text(store.player)
-  console.log('YAAAAS', checkForWinner())
   // if (store.currentBox === store.player) {
-  console.log('this is store.currentBox\n', store.currentBox)
   // $('#message-board').text('Pick An Empty Spot!')
   store.game = response.game
   store.game.over = checkForWinner()
 }
 
 const cellChoiceFailure = function (response) {
-  $('.cell').text('Failed')
+  $('.cell').text('Try Again')
 }
-// change store.playerChoice.innerText for picking X & O
-const pieceSuccess = (response) => {
-  $('#choiceMessage').text('You chose: ' + store.player)
-}
-const pieceFailure = (response) => {
-  $('#choiceMessage').text('Failed. pick again')
-}
+
 const gameCountSuccess = (response) => {
   $('#games-played').html('Total number of games played: ' + response.games.length)
 }
+
 const gameCountFailure = (response) => {
-  $('#games-played').text('-Failed-')
+  $('#games-played').text('Login To Start Playing')
 }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -161,11 +154,9 @@ module.exports = {
   startGameSuccess,
   startGameFailure,
   checkForWinner,
-  playerTurn,
+  // playerTurn,
   cellChoiceSuccess,
   cellChoiceFailure,
-  pieceSuccess,
-  pieceFailure,
   gameCountSuccess,
   gameCountFailure
 }
