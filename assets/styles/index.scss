@@ -4,7 +4,7 @@ $black: black;
 $hi-viz: #00ff00;
 
 .border {
-  border: 3px solid $hi-viz;
+  border: 3px solid $black;
   margin: 20px;
   padding: 20px;
 }
@@ -13,19 +13,7 @@ body {
   background: #dcdcdc;
   font-family: 'Permanent Marker', cursive;
 }
-// #sign-up {
-//   display: none;
-// }
-// #sign-in {
-//   display: none;
-// }
-// #certified {
-//   display: none;
-// }
 
-// #not-certifed {
-//   display: none;
-// }
 h1{
   text-align: center;
 }
@@ -58,4 +46,17 @@ h3 {
 .cell:hover {
   background-color: rgba(105,191,133,0.5);
   transition: .5s background-color;
+}
+
+// iPhone 6, 6S, 7 and 8
+
+ // Portrait and Landscape
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+button {
+  break-after: auto;
+}
+
 }

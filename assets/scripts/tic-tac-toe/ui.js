@@ -1,59 +1,87 @@
 const store = require('../store')
 const events = require('./events')
 
+$('#certified').hide()
+$('#message').show()
+$('#start-game').hide()
+$('#game-count').hide()
+$('#start-message').show()
+
 const signUpSuccess = function () {
-  $('#message').text('All Signed up. Good Luck!')
+  $('#message').text('All Signed up. Sign In To Play!')
   $('form').trigger('reset')
-  // $('#sign-up').hide()
+  $('#sign-up').delay(3500).slideUp(1500)
   // $('#sing-out').show()
 }
 const signUpFailure = function () {
-  $('#message').text('Failed To Sign Up')
+  $('#message').text('Try A Different Email')
 }
 
 const signInSuccess = function (response) {
+  $('#change-password').show()
+  $('#certified').show()
   $('#message').text('Good Luck!')
   store.user = response.user
   console.log('store: ', store)
   console.log('token: ', store.user.token)
   $('form').trigger('reset')
-  // $('#sign-in').hide()
-  // $('#sign-up').hide()
+  $('#sign-in').delay(1500).slideUp(1000)
+  $('#sign-up').delay(2000).slideUp(1000)
+  $('#login').delay(2000).slideDown(2000).hide('#login')
+  $('#start-game').delay(2000).slideDown(1000)
+  $('#game-count').delay(3000).slideDown(1000)
 }
 
 const signInFailure = function () {
-  $('#message').text('Failed To Sign In')
+  $('#message').show()
+  $('#message').text('oops...Sign In')
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Change Successful')
+  $('#change-pw').show()
+  $('#change-pw').text('Changed Successfully')
+  $('#change-pw').delay(2000).slideUp(1000)
   $('form').trigger('reset')
+  $('#change-password').delay(2500).slideUp(1000)
 }
 
 const changePasswordFailure = function () {
-  $('#message').text('Failed. Try Again ')
+  $('#change-pw').show()
+  $('#change-pw').text('oops...Try Again')
 }
-
 const signOutSuccess = function () {
-  $('#message').text('Siged Out Successfully')
+  $('#message').text('Signed Out Successfully')
+  $('#sign-up').slideDown(1000)
+  $('#sign-in').delay(750).slideDown(1000)
+  $('#message').delay(3500).hide('Signed Out Successfully')
+  $('#login').delay(4000).show('#login')
+  $('#change-password').hide()
+  $('#start-message').hide()
+  $('#change-pw').slideUp(1500)
+  $('#sign-out').delay(3500).slideUp(1000)
+  $('#start-game').delay(3000).slideUp(1000)
+  $('#game-count').delay(2500).slideUp(1000)
+  $('#games-played').delay(1500).slideUp(1000)
 }
 
 const signOutFailure = function () {
-  $('#message').text('Failed To Sign Out')
+  $('#message').text('oops...Try Again')
 }
 
 const startGameSuccess = function (response) {
-  $('#start-message').text('Your move X, Choose Wisely!')
   console.log(response)
   store.game = response.game
-
   for (let i = 0; i < store.game.cells.length; i++) {
     $(`#${i}`).text(store.game.cells[i])
   }
-  $('#message-board').hide()
+  $('#start-message').text('Your move X, Choose Wisely!')
+  $('#change-password').delay(700).slideUp(1000)
+  $('#message-board').delay(1000).slideUp(1000)
+  $('#change-pw').hide()
 }
+
 const startGameFailure = function (response) {
-  $('#start-message').text('Failed, sign in again.')
+  $('#start-message').text('Login To Start Playing')
 }
 
 const checkForWinner = function (response) {
@@ -139,7 +167,7 @@ const gameCountSuccess = (response) => {
 }
 
 const gameCountFailure = (response) => {
-  $('#games-played').text('Login To Start Playing')
+  $('#games-played').text('oops...Sign In First')
 }
 
 module.exports = {
