@@ -42,14 +42,10 @@ const onStartGame = function (event) {
   const form = event.target
   const formData = getFormFields(form)
   store.player = 'O'
-
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
-
-  console.log(event)
 }
-
 
 const onGameCount = function (event) {
   event.preventDefault()
@@ -57,11 +53,10 @@ const onGameCount = function (event) {
     .then(ui.gameCountSuccess)
     .catch(ui.gameCountFailure)
 }
-// store.totalGames = 0
-// store.player1 = 'X'
 
 const onCellChoice = function (event, checkForWinner, checkForTie) {
   event.preventDefault()
+
   store.currentBox = event.target.id
   const index = store.currentBox
   if (store.game.over === true) {
@@ -69,11 +64,7 @@ const onCellChoice = function (event, checkForWinner, checkForTie) {
     return
   } else if (store.game.cells[index] === '') {
     store.player = (store.player === 'X') ? 'O' : 'X'
-    // console.log(event + ' This is the cell choice if player choice already.')
     $('#message-board').text('Pick another spot')
-    // console.log('This is the index and this .cells inside on cell choice')
-    // console.log(index)
-
     api.cellChoice(index)
       .then(ui.cellChoiceSuccess)
       .catch(ui.cellChoiceFailure)
@@ -82,16 +73,12 @@ const onCellChoice = function (event, checkForWinner, checkForTie) {
   }
 }
 
-const playerPiece = (event) => {
-  event.preventDefault()
-  // store.playerChoice = event.target
+function openNav () {
+  document.getElementById("mySidenav").style.width = "225px";
+}
 
-  const player = $(store.player).val()
-
-  api.cellChoice(player)
-    .then(ui.pieceSuccess)
-    .catch(ui.pieceFailure)
-  console.log('Player: ' + event)
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
 }
 
 
@@ -102,9 +89,5 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCellChoice,
-  onGameCount,
-  playerPiece
-  // checkForWinner,
-  // updateGameSuccess,
-  // updateGameSuccess
+  onGameCount
 }
