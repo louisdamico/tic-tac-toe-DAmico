@@ -60,18 +60,22 @@ h3 {
   text-align: center;
 }
 .cell {
+ border-radius: 7px;
  font-family: sans-serif;
  text-align: center;
  width: 100px;
  height: 100px;
  font-size: 65px;
  cursor: pointer;
- border: 2px solid;
+ border: 5px solid;
+ margin: 2px;
 }
+
 .cell:hover {
   background-color: rgba(105,191,133,0.5);
   transition: .5s background-color;
 }
+
 // .cell {
 //   background-image:     url('https://i.imgur.com/YbSqVbd.png?1');
 //   background-size: cover;

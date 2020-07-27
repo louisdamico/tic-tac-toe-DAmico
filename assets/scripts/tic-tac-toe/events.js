@@ -38,6 +38,7 @@ const onSignOut = function (event) {
 }
 
 const onStartGame = function (event) {
+
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)

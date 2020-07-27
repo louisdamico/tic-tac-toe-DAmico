@@ -9,7 +9,7 @@ $('#start-message').show()
 const signUpSuccess = function () {
   $('#message').text('All Signed up. Sign In To Play!').show()
   $('form').trigger('reset')
-  $('#sign-up').delay(3500).slideUp(1500)
+  $('#sign-up').delay(2500).slideUp(750)
   // $('#sing-out').show()
 }
 const signUpFailure = function () {
@@ -19,19 +19,19 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   $('#message').show()
-  $('#sign-out').delay(3000).fadeIn(1000)
-  $('#change-password').delay(3000).slideDown(1000)
-  $('#certified').delay(3000).slideDown(1000)
+  $('#sign-out').delay(2500).fadeIn(750)
+  $('#change-password').delay(2500).slideDown(750)
+  $('#certified').delay(2500).slideDown(750)
   $('#message').text('Good Luck!')
   store.user = response.user
   console.log('store: ', store)
   console.log('token: ', store.user.token)
   $('form').trigger('reset')
-  $('#sign-in').delay(1500).slideUp(1000)
-  $('#sign-up').delay(2000).slideUp(1000)
-  $('#login').delay(2000).slideDown(2000).hide('#login')
-  $('#start-game').delay(2000).slideDown(1000)
-  $('#game-count').delay(3000).slideDown(1000)
+  $('#sign-in').delay(700).slideUp(750)
+  $('#sign-up').delay(1000).slideUp(750)
+  $('#login').delay(1000).slideDown(1500).hide('#login')
+  $('#start-game').delay(1000).slideDown(750)
+  $('#game-count').delay(2000).slideDown(750)
 }
 
 const signInFailure = function () {
@@ -42,9 +42,9 @@ const signInFailure = function () {
 const changePasswordSuccess = function () {
   $('#change-pw').show()
   $('#change-pw').text('Changed Successfully')
-  $('#change-pw').delay(2000).slideUp(1000)
+  $('#change-pw').delay(1000).slideUp(750)
   $('form').trigger('reset')
-  $('#change-password').delay(2500).slideUp(1000)
+  $('#change-password').delay(1500).slideUp(750)
 }
 
 const changePasswordFailure = function () {
@@ -54,15 +54,15 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#change-password').hide()
   $('#message').text('Signed Out Successfully')
-  $('#sign-up').slideDown(1000)
-  $('#sign-in').delay(750).slideDown(1000)
-  $('#message').delay(3500).hide('Signed Out Successfully')
-  $('#login').delay(4000).show('#login')
+  $('#sign-up').slideDown(750)
+  $('#sign-in').delay(750).slideDown(750)
+  $('#message').delay(2500).hide('Signed Out Successfully')
+  $('#login').delay(3000).show('#login')
   $('#start-message').empty()
-  $('#change-pw').slideUp(1500)
-  $('#sign-out').delay(2000).slideUp(1000)
-  $('#start-game').delay(1500).slideUp(1000)
-  $('#game-count').delay(1000).slideUp(1000)
+  $('#change-pw').slideUp(700)
+  $('#sign-out').delay(1000).slideUp(750)
+  $('#start-game').delay(700).slideUp(750)
+  $('#game-count').delay(700).slideUp(750)
   $('#games-played').empty()
   $('#message').show() // this from top
 }
@@ -147,15 +147,8 @@ const checkForWinner = function (response) {
   }
 }
 
-// const playerTurn = function (response) {
-//   $('#message-board').html(events.currentPlayer + '\'s turn.')
-//   events.currentPlayer = response.currentPlayer
-//   store.game = response.game
-// }
-
 const cellChoiceSuccess = function (response, game) {
   $(`#${store.currentBox}`).text(store.player)
-  // if (store.currentBox === store.player) {
   // $('#message-board').text('Pick An Empty Spot!')
   store.game = response.game
   store.game.over = checkForWinner()
