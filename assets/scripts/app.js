@@ -6,6 +6,7 @@
 const tttEvents = require('./tic-tac-toe/events')
 
 $(() => {
+  $('.game-board').hide()
   $('#sign-up').on('submit', tttEvents.onSignUp)
   $('#sign-in').on('submit', tttEvents.onSignIn)
   $('#change-password').on('submit', tttEvents.onChangePassword)
