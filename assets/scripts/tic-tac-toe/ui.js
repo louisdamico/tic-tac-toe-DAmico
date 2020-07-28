@@ -66,6 +66,7 @@ const signOutSuccess = function () {
   $('#message').show()
   $('#message-board').delay(1000).fadeOut(1000)
   $('.game-board').delay(2000).fadeOut(1000)
+  $('#peace').fadeIn(1000)
 }
 
 const signOutFailure = function () {
@@ -78,7 +79,7 @@ const startGameSuccess = function (response) {
   for (let i = 0; i < store.game.cells.length; i++) {
     $(`#${i}`).text(store.game.cells[i])
   }
-  $('#peace').fadeOut(1000)
+  $('#fist').fadeOut(1000)
   // $('#start-message').text()
   $('#change-password').slideUp(1000) // this
   $('#message-board').show('Your move X, Choose Wisely!')
