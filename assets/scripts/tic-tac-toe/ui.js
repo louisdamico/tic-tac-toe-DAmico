@@ -88,6 +88,19 @@ const startGameSuccess = function (response) {
 const startGameFailure = function (response) {
   $('#start-message').text('Login To Start Playing')
 }
+const checkForEmptyCells = function () {
+  let emptyCounter = 0
+  for (let i = 0; i < store.game.cells.length; i++) {
+    if (store.game.cells[i] === '') {
+      emptyCounter++
+    }
+  }
+  if (emptyCounter > 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
 const checkForWinner = function (response) {
   if ($('#0').text() === 'X' && $('#1').text() === 'X' && $('#2').text() === 'X') {
@@ -138,14 +151,8 @@ const checkForWinner = function (response) {
   } else if ($('#6').text() === 'O' && $('#7').text() === 'O' && $('#8').text() === 'O') {
     $('#message-board').text(store.player + ' Is The Winner!').delay(2000).fadeOut(500)
     return true
-  } else {
-    if (store.currentBox === store.game.cells.length) {
-      console.log(store.currentBox, store.game.cells.length)
-      $('#message-board').text('It\'s a TIE!')
-      return true
-    } else {
-      return false
-    }
+  } else if (checkForEmptyCells() === false) {
+    $('#message-board').text('It\'s a TIE!')
   }
 }
 const cellChoiceSuccess = function (response, game) {
