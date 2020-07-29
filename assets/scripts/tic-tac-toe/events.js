@@ -32,17 +32,19 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
+  $('.game-board').hide()
+
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
 
 const onStartGame = function (event) {
-
   event.preventDefault()
+  // $('#message-board').fadeOut(500)
+  $('.game-board').delay(1000).fadeIn(1000)
   const form = event.target
   const formData = getFormFields(form)
-  store.player = 'O'
   api.startGame(formData)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -57,23 +59,30 @@ const onGameCount = function (event) {
 
 const onCellChoice = function (event, checkForWinner, checkForTie) {
   event.preventDefault()
-
+  console.log('This is the cells choice ' + store.game)
   store.currentBox = event.target.id
   const index = store.currentBox
+
   if (store.game.over === true) {
-    $('#message-board').text('Game Over')
     return
   } else if (store.game.cells[index] === '') {
-    store.player = (store.player === 'X') ? 'O' : 'X'
-    $('#message-board').text('Pick another spot')
+  // store.player = (store.player === 'X') ? 'O' : 'X'
+    if (store.player === 'X') {
+      // alert('THIS IS A TEST')
+      $('#message-board').text('Next Turn X').show()
+      store.player = 'O'
+    } else {
+      ($('#message-board').text('Next Turn O'))
+      store.player = 'X'
+    }
     api.cellChoice(index)
       .then(ui.cellChoiceSuccess)
       .catch(ui.cellChoiceFailure)
-  } else {
-    return
-  }
+  // } else {
+  //   return
+  // }
 }
-
+}
 module.exports = {
   onSignUp,
   onSignIn,

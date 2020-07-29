@@ -14,6 +14,10 @@ body {
   text-align: center;
   background: #dcdcdc;
   font-family: 'Permanent Marker', cursive;
+  background-image: url('https://i.imgur.com/rxtndh1.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #dcdcdc;
 }
 button:focus {
   outline: 0;
@@ -30,15 +34,13 @@ input {
   border-radius: 7px;
   text-align: center;
 }
-
 header {
   background: black;
   padding: 20px;
-  margin: 15px 5px;
+  margin: 20px 15px;
   color: #dcdcdc;
   border-radius: 10px;
 }
-
 h1{
   text-align: center;
 }
@@ -56,30 +58,43 @@ h3 {
     width: 306px;
     margin: 50px auto;
 }
+#games-played {
+  font-size: 20px;
+}
+#start-message {
+  font-size: 20px;
+}
+#message {
+  font-size: 20px;
+}
 #message-board {
   text-align: center;
+  font-size: 40px;
 }
 .cell {
  border-radius: 7px;
- font-family: sans-serif;
  text-align: center;
  width: 100px;
  height: 100px;
  font-size: 65px;
  cursor: pointer;
- border: 5px solid;
+ border: 7px solid;
  margin: 2px;
 }
-
+// #fist {
+//   margin: auto;
+//   z-index: 1;
+// }
+#peace {
+  margin: auto;
+  z-index: 1;
+}
 .cell:hover {
   background-color: rgba(105,191,133,0.5);
   transition: .5s background-color;
 }
 
 // .cell {
-//   background-image:     url('https://i.imgur.com/YbSqVbd.png?1');
-//   background-size: cover;
-//   background-color: #dcdcdc;
 //   border-radius: 100px;
 //   border-width:9px;
 //   height: 200px;
