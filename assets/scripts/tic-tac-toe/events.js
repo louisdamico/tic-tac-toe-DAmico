@@ -32,8 +32,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  $('.game-board').delay(1000).fadeIn(1000)
-
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -41,8 +39,7 @@ const onSignOut = function (event) {
 
 const onStartGame = function (event) {
   event.preventDefault()
-  // $('#message-board').fadeOut(500)
-  $('.game-board').delay(1000).fadeIn(1000)
+  $('#message-board').show('Your move X, Choose Wisely!')
   const form = event.target
   const formData = getFormFields(form)
   store.player = 'O'
