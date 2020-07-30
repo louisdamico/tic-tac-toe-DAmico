@@ -1,0 +1,116 @@
+@import '~bootstrap/scss/bootstrap';
+
+$black: black;
+$hi-viz: #00ff00;
+
+.border {
+  border: 3px solid $black;
+  margin: 20px;
+  padding: 20px;
+}
+
+body {
+  font-size: 15px;
+  text-align: center;
+  background: #dcdcdc;
+  font-family: 'Permanent Marker', cursive;
+  background-image: url('https://i.imgur.com/rxtndh1.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #dcdcdc;
+}
+button:focus {
+  outline: 0;
+}
+button {
+  background-color: #dcdcdc;
+  border-radius: 7px;
+}
+input:focus {
+  outline: 0;
+}
+input {
+  background-color: #dcdcdc;
+  border-radius: 7px;
+  text-align: center;
+}
+header {
+  background: black;
+  padding: 20px;
+  margin: 20px 15px;
+  color: #dcdcdc;
+  border-radius: 10px;
+}
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+.game-board {
+  display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+}
+#games-played {
+  font-size: 20px;
+}
+#start-message {
+  font-size: 20px;
+}
+#message {
+  font-size: 20px;
+}
+#message-board {
+  text-align: center;
+  font-size: 40px;
+}
+.cell {
+ border-radius: 7px;
+ text-align: center;
+ width: 100px;
+ height: 100px;
+ font-size: 64px;
+ cursor: pointer;
+ border: 7px solid;
+ margin: 2px;
+}
+// #fist {
+//   margin: auto;
+//   z-index: 1;
+// }
+#peace {
+  margin: auto;
+  z-index: 1;
+}
+.cell:hover {
+  background-color: rgba(105,191,133,0.5);
+  transition: .5s background-color;
+}
+
+// .cell {
+//   border-radius: 100px;
+//   border-width:9px;
+//   height: 200px;
+//   width: 200px;
+//   border-color: black;
+//   margin: auto;
+// }
+// iPhone 6, 6S, 7 and 8
+
+ // Portrait and Landscape
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+button {
+  break-after: auto;
+}
+
+}
