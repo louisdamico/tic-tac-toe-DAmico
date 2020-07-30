@@ -39,7 +39,7 @@ const onSignOut = function (event) {
 
 const onStartGame = function (event) {
   event.preventDefault()
-  $('#message-board').show('Your move X, Choose Wisely!')
+  $('#message-board').text('Your move X , Choose Wisely!').show()
   const form = event.target
   const formData = getFormFields(form)
   store.player = 'O'
