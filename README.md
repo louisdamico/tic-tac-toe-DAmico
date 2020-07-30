@@ -32,7 +32,7 @@ Technologies Used:
 
 Unsolved Problems:
 
-Still need to make the game a bit more interactive and give it some more styling and a few mroe animation, like drop down menus and mutilple pages to view.
+Still need to make the game a bit more interactive and give it some more styling, like drop down menus and mutilple pages to view.
 Would like to eventually make the it be able to play agianst a simple AI.
 
 
