@@ -1,7 +1,8 @@
 const store = require('../store')
 const events = require('./events')
 
-// $('#certified').hide()
+$('#certified').hide()
+$('#start-game').hide()
 $('#game-count').hide()
 $('#start-message').show()
 
@@ -9,28 +10,23 @@ const signUpSuccess = function () {
   $('#message').text('All Signed up. Sign In To Play!').show()
   $('form').trigger('reset')
   $('#sign-up').delay(2500).slideUp(750)
-  $('#change-password').hide()
-
 }
 const signUpFailure = function () {
   $('#message').text('Try A Different Email').show()
-  $('#change-password').hide()
-
 }
 
 const signInSuccess = function (response) {
-  // $('#message').show()
-  $('#sign-out').show()
-  $('#change-password').show()
-  $('#certified').hide()
-  $('#message').text('Sign in Was Successful, Good Luck!')
+  $('#message').show()
+  $('#sign-out').delay(2500).fadeIn(750)
+  $('#change-password').delay(2500).slideDown(750)
+  $('#certified').delay(2500).slideDown(750)
+  $('#message').text('Good Luck!')
   store.user = response.user
   $('form').trigger('reset')
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  $('#login').hide()
-  // $('#start-game').delay(1000).slideDown(750)
-  $('#start-game').show()
+  $('#sign-in').delay(1000).slideUp(750)
+  $('#sign-up').delay(2000).slideUp(750)
+  $('#login').delay(1000).slideDown(1500).hide('#login')
+  $('#start-game').delay(1000).slideDown(750)
   $('#game-count').delay(2000).slideDown(750)
 }
 
@@ -44,7 +40,7 @@ const changePasswordSuccess = function () {
   $('#change-pw').text('Changed Successfully')
   $('#change-pw').delay(1000).slideUp(750)
   $('form').trigger('reset')
-  $('#change-password').show()
+  $('#change-password').delay(1500).slideUp(750)
 }
 
 const changePasswordFailure = function () {
@@ -56,16 +52,13 @@ const signOutSuccess = function () {
   $('#message').text('Signed Out Successfully')
   $('#sign-up').slideDown(750)
   $('#sign-in').delay(500).slideDown(750)
-  $('#message').delay(2500).hide()
   $('#login').delay(3000).show('#login')
   $('#start-message').empty()
   $('#change-pw').slideUp(700)
   $('#sign-out').delay(750).slideUp(750)
-  // $('#start-game').delay(500).slideUp(750)
-  $('#start-game').hide()
+  $('#start-game').delay(500).slideUp(750)
   $('#game-count').delay(500).slideUp(750)
   $('#games-played').empty()
-  $('#message').show()
   $('#message-board').fadeOut(1000)
   $('.game-board').fadeOut(1000)
   $('#peace').delay(1000).fadein(1000)
@@ -80,9 +73,8 @@ const startGameSuccess = function (response) {
   for (let i = 0; i < store.game.cells.length; i++) {
     $(`#${i}`).text(store.game.cells[i])
   }
-  $('#message-board').text('Your move X, Choose Wisely!').show()
-  $('#change-password').show()
-  $('#change-pw').show()
+  $('#message-board').show('Your move X, Choose Wisely!')
+  $('#change-pw').hide()
   $('.game-board').fadeIn(1000)
 }
 
@@ -160,7 +152,7 @@ const cellChoiceSuccess = function (response, game) {
   $(`#${store.currentBox}`).text(store.player)
   store.game = response.game
   store.game.over = checkForWinner()
-  }
+}
 
 const cellChoiceFailure = function (response) {
   $('.cell').text('Try Again')

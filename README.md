@@ -9,7 +9,7 @@ Important Links:
 
 Planning Story:
 
-The first steps I took towards development was to set some wireframes on how I would like the game to visually look, pictured below. The orginal disgins we're based on moble and laptop play. Next I aquired all the parameters and documentation needed for the game to make a timeframe schedule.  I started with all the elements I was comfortable with in html and css to build the gameboard.  From there I started working on all the ligic that he game was going to require and login/sign up info. Once I had everything organized I was ready to start developing.
+The first steps I took towards development was to set some wireframes on how I would like the game to visually look, pictured below. The orginal disgins we're based on moble and laptop play. Next I aquired all the parameters and documentation needed for the game to make a timeframe schedule.  I started with all the elements I was comfortable with in html and css to build the gameboard.  From there I started working on all the ligic that the game was going to require and login/sign up info. Once I had everything organized I was ready to start developing.
 
 User Stories:
 
@@ -41,11 +41,10 @@ Would like to eventually make the it be able to play agianst a simple AI.
   CSS
   SASS
   Javascript
-  
+
 
 Unsolved Problems:
-  I still need to work on my styling and overall look and feel of how I orignaly set in my wifeframe/ 
-  Would like to eventually add some animations.  
+  I still need to work on my styling and overall look and feel of how I orignaly set in my wifeframe. I need to clean up my folders and organize my code structure a bit more.
 
 
 Images:
