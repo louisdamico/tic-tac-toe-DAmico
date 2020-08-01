@@ -52,7 +52,6 @@ const signOutSuccess = function () {
   $('#message').text('Signed Out Successfully')
   $('#sign-up').slideDown(750)
   $('#sign-in').delay(500).slideDown(750)
-  $('#message').delay(2500).hide('Signed Out Successfully')
   $('#login').delay(3000).show('#login')
   $('#start-message').empty()
   $('#change-pw').slideUp(700)
@@ -60,14 +59,13 @@ const signOutSuccess = function () {
   $('#start-game').delay(500).slideUp(750)
   $('#game-count').delay(500).slideUp(750)
   $('#games-played').empty()
-  $('#message').show()
   $('#message-board').fadeOut(1000)
   $('.game-board').fadeOut(1000)
   $('#peace').delay(1000).fadein(1000)
 }
 
 const signOutFailure = function () {
-  $('#message').text('OOPS...Try Again')
+  $('#message').text('Signed Out')
 }
 
 const startGameSuccess = function (response) {
@@ -76,10 +74,8 @@ const startGameSuccess = function (response) {
     $(`#${i}`).text(store.game.cells[i])
   }
   $('#message-board').show('Your move X, Choose Wisely!')
-  $('#change-password').slideUp(700)
   $('#change-pw').hide()
   $('.game-board').fadeIn(1000)
-
 }
 
 const startGameFailure = function (response) {
@@ -156,7 +152,7 @@ const cellChoiceSuccess = function (response, game) {
   $(`#${store.currentBox}`).text(store.player)
   store.game = response.game
   store.game.over = checkForWinner()
-  }
+}
 
 const cellChoiceFailure = function (response) {
   $('.cell').text('Try Again')
