@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+      <h1>Tic-Tac-Toe</h1>
+
+      <div id="not-certifed">
+        <h2 id="login">Login</h2>
+          <form id="sign-up">
+            <p id="message"></p>
+              <input name="credentials[email]" placeholder="email" type="text">
+              <input name="credentials[password]" placeholder="password" type="password">
+              <input name="credentials[password_confirmation]" placeholder="confirm password" type="password">
+                <button type="submit">Sign Up!</button>
+          </form>
+          <br>
+
+      <!-- dissapear after sign in -->
+          <form id="sign-in">
+            <input name="credentials[email]" placeholder="email" type="email">
+            <input name="credentials[password]" placeholder="password" type="password">
+              <button type="submit">Sign In</button>
+          </form>
+          <br>
+      </div>
+
+      <!-- dissapear after sign in -->
+      <div id="certified">
+        <p id="change-pw"></p>
+        <form id="change-password">
+          <input name="passwords[old]" placeholder="old password" type="password">
+          <input name="passwords[new]" placeholder="new password" type="password">
+            <button type="submit">Change Password</button>
+        </form>
+
+      <!-- appear only after sign in -->
+        <form id="sign-out">
+          <br>
+          <button type="submit">Sign Out</button>
+        </form>
+        <br>
+      </div>
+
+      <!-- show number of games won, lost, tied -->
+      <div>
+        <form id="start-game">
+          <button type="submit">Start New Game</button>
+          <br>
+          <p id="start-message"></p>
+        </form>
+      <button id="game-count">Games Played</button>
+      <p id="games-played"></p>
+      </div>
+      </header>
+    <br>
+    <div>
+
+      <p id="message-board"></p>
+      </div>
+        <div class="game-board">
+            <div class="cell" id="0"></div>
+            <div class="cell" id="1"></div>
+            <div class="cell" id="2"></div>
+            <div class="cell" id="3"></div>
+            <div class="cell" id="4"></div>
+            <div class="cell" id="5"></div>
+            <div class="cell" id="6"></div>
+            <div class="cell" id="7"></div>
+            <div class="cell" id="8"></div>
+        </div>
+        <div id="peace">
+        <a href="https://imgur.com/ZtIShpT"><img src="https://i.imgur.com/ZtIShpT.png?2" title="source: imgur.com"></a>
+      </div>
+      </body>
+</html>
