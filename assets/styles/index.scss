@@ -82,10 +82,6 @@ h3 {
  border: 7px solid;
  margin: 2px;
 }
-#peace {
-  margin: auto;
-  z-index: 1;
-}
 .cell:hover {
   background-color: rgba(105,191,133,0.5);
   transition: .5s background-color;
@@ -98,6 +94,5 @@ h3 {
   and (-webkit-min-device-pixel-ratio: 2) {
 button {
   break-after: auto;
-}
-
+  }
 }
