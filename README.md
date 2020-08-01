@@ -11,6 +11,11 @@ Planning Story:
 
 The first steps I took towards development was to set some wireframes on how I would like the game to visually look, pictured below. The orginal disgins we're based on moble and laptop play. Next I aquired all the parameters and documentation needed for the game to make a timeframe schedule.  I started with all the elements I was comfortable with in html and css to build the gameboard.  From there I started working on all the ligic that the game was going to require and login/sign up info. Once I had everything organized I was ready to start developing.
 
+Images:
+  Wireframes:
+  <img src="https://i.imgur.com/VjcQEYb.jpg" alt="moble page drawing">
+  <img src="https://i.imgur.com/73tgtOA.jpg" alt="laptop page drawing">
+
 User Stories:
 
   As a user I want to sign in/up.
@@ -34,20 +39,3 @@ Unsolved Problems:
 
 Still need to make the game a bit more interactive and give it some more styling, like drop down menus and mutilple pages to view.
 Would like to eventually make the it be able to play agianst a simple AI.
-
-
-  jQuery
-  HTML
-  CSS
-  SASS
-  Javascript
-
-
-Unsolved Problems:
-  I still need to work on my styling and overall look and feel of how I orignaly set in my wifeframe. I need to clean up my folders and organize my code structure a bit more.
-
-
-Images:
-  Wireframes:
-  <img src="https://i.imgur.com/VjcQEYb.jpg" alt="moble page drawing">
-  <img src="https://i.imgur.com/73tgtOA.jpg" alt="laptop page drawing">
