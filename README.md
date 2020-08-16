@@ -5,7 +5,7 @@ This application is a fun and simple Tic Tac Toe game and allows the user to pla
 
 Important Links:
 
-  <a href="https://loudam88.github.io/tic-tac-toe-DAmico/" rel="nofollow">Tic Tac Toe</a>
+  <a href="https://louisdamico.github.io/tic-tac-toe-DAmico/" rel="nofollow">Tic Tac Toe</a>
 
 Planning Story:
 
